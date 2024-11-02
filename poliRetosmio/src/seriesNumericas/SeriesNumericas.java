@@ -8,27 +8,27 @@ public class SeriesNumericas {
         System.out.print("Ingrese el número de términos de la serie: ");
         int n = sc.nextInt();
 
-        System.out.println("\t Serie de Fibonacci: ");
+        System.out.println(" Serie de Fibonacci: ");
         g5_crearserieFibonacci(n);
-        System.out.println("\t Serie Alternada: ");
+        System.out.println(" Serie Alternada: ");
         g5_crearserieAlternada(n);
-        System.out.println("\t Serie Fraccion Fibonacci/Impares: ");
+        System.out.println(" Serie Fraccion Fibonacci/Impares: ");
         g5_crearserieFraccionFibonacciImpares(n);
-        System.out.println("\t Serie Fraccion Fibonacci/pares: ");
+        System.out.println(" Serie Fraccion Fibonacci/pares: ");
         g5_crearserieFraccionFibonacciPares(n);
-        System.out.println("\t Serie Primos: ");
+        System.out.println(" Serie Primos: ");
         g5_crearseriePrimos(n);
-        System.out.println("\t Serie Progresion cuadratica: ");
+        System.out.println(" Serie Progresion cuadratica: ");
         g5_crearserieProgresionCuadratica(n);
-        System.out.println("\t Serie Incremento de 3: ");
+        System.out.println(" Serie Incremento de 3: ");
         g5_crearserieIncrementoDeTres(n);
-        System.out.println("\t Serie Incrementos de 5: ");
+        System.out.println(" Serie Incrementos de 5: ");
         g5_crearserieIncrementoDeCinco(n);
-        System.out.println("\t Serie Potencias de 2: ");
+        System.out.println(" Serie Potencias de 2: ");
         g5_crearseriePotenciasDeDos(n);
-        System.out.println("\t Serie potencia de 3: ");
+        System.out.println(" Serie potencia de 3: ");
         g5_crearseriePotenciasDeTres(n);
-        System.out.println("\t Serie cuadrados Perfectos: ");
+        System.out.println(" Serie cuadrados Perfectos: ");
         g5_crearserieCuadradosPerfectos(n);
     }
 
