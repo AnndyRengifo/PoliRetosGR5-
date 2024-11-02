@@ -3,6 +3,8 @@ import java.util.Scanner;
 import seriesCaracteres.SeriesCaracteres;
 import seriesFiguras.SeriesFiguras;
 import seriesNumericas.SeriesNumericas;
+import cadenaCaracteres.CadenaDeCaracteres;
+
 
 public class menu {
 
@@ -30,11 +32,13 @@ public class menu {
             System.out.println("\t  1. Series numericas");
             System.out.println("\t  2. Serie de caracteres");
             System.out.println("\t  3. Serie de figuras");
-            System.out.println("\t  4. Salir");
+            System.out.println("\t  4. Cadena de Caracteres");
+            System.out.println("\t  5. Salir");
             System.out.print("\t Seleccione una opcion: ");
             
             if (sc.hasNextInt()) {
                 opcion = sc.nextInt();
+                sc.nextLine();
                 switch (opcion) {
                     case 1:
                         SeriesNumericas series = new SeriesNumericas();
@@ -49,6 +53,10 @@ public class menu {
                        seriesFiguras.generarFiguras(sc);
                         break;
                     case 4:
+                        CadenaDeCaracteres cadena = new CadenaDeCaracteres();
+                        cadena.generarCaracteres(sc);
+                        break;
+                    case 5:
                         System.out.println("\n\t Saliendo del programa");
                         break;
                     default:
@@ -59,7 +67,7 @@ public class menu {
                 sc.next(); 
             }
             System.out.println("\n");
-        } while (opcion != 4);
+        } while (opcion != 5);
 
         sc.close();
     }
