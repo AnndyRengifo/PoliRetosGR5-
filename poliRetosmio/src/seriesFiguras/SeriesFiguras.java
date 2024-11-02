@@ -4,46 +4,46 @@ import java.util.*;
 public class SeriesFiguras {
     public void generarFiguras(Scanner sc){
         
-        System.out.print("Ingrese el tamanio de la figura: ");
+        System.out.print("\t Ingrese el tamanio de la figura: ");
         int n = sc.nextInt();
 
-        System.out.println("F1: ");
+        System.out.println(" F1: ");
         Gr5_f1(n);
-        System.out.println("F2: ");
+        System.out.println(" F2: ");
         Gr5_f2(n);
-        System.out.println("F3: ");
+        System.out.println(" F3: ");
         Gr5_f3(n);
-        System.out.println("F4: ");
+        System.out.println(" F4: ");
         Gr5_f4(n);
-        System.out.println("F5: ");
+        System.out.println(" F5: ");
         Gr5_f5(n);
-        System.out.println("F6: ");
+        System.out.println(" F6: ");
         Gr5_f6(n);
-        System.out.println("F7: ");
+        System.out.println(" F7: ");
         Gr5_f7(n);
-        System.out.println("F8: ");
+        System.out.println(" F8: ");
         Gr5_f8(n);
-        System.out.println("F9: ");
+        System.out.println(" F9: ");
         Gr5_f9(n);
-        System.out.println("F10: ");
+        System.out.println(" F10: ");
         Gr5_f10(n);
-        System.out.println("F11: ");
+        System.out.println(" F11: ");
         Gr5_f11(n);
-        System.out.println("F12: ");
+        System.out.println(" F12: ");
         Gr5_f12(n);
-        System.out.println("F13: ");
+        System.out.println(" F13: ");
         Gr5_f13(n);
-        System.out.println("F14: ");
+        System.out.println(" F14: ");
         Gr5_14(n);
-        System.out.println("F15: ");
+        System.out.println(" F15: ");
         Gr5_f15(n);
-        System.out.println("F16: ");
+        System.out.println(" F16: ");
         Gr5_16(n);
-        System.out.println("F17: ");
+        System.out.println(" F17: ");
         Gr5_17(n);
-        System.out.println("F18: ");
+        System.out.println(" F18: ");
         Gr18_f18(n);
-        System.out.println("F19: ");
+        System.out.println(" F19: ");
         Gr5_f19(n);
         
 
