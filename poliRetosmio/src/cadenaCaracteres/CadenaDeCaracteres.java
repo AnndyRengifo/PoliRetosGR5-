@@ -12,7 +12,8 @@ public class CadenaDeCaracteres {
             System.out.println("2. Contar Letras");
             System.out.println("3. Eliminar vocal");
             System.out.println("4. Eliminar letra");
-            System.out.println("5. Salir");
+            System.out.println("5. Invertir palabra");
+            System.out.println("6. Salir");
             System.out.print("Ingrese la opción: ");
 
             while(!sc.hasNext()){
@@ -39,17 +40,22 @@ public class CadenaDeCaracteres {
                     C03(sc, frase3);
                     break;
                 case 4:
-                    System.out.print("Ingresela frase: ");
+                    System.out.print("Ingrese la frase: ");
                     String frase4 = sc.nextLine();
                     C04(sc, frase4);
                     break;
                 case 5:
+                    System.out.print("Ingresela frase: ");
+                    String frase5 = sc.nextLine();
+                    C05(sc, frase5);
+                    break;
+                case 6:
                     System.out.println("Saliendo del menu de Cadena de Caracteres! :)");
                     break;
                 default:
                     System.out.println("Opcion no valida, elija  una opción del 1 al 3");
             }
-        }while(opcion !=5);
+        }while(opcion !=6);
     }
 
     public void C01(String frase) {
@@ -129,6 +135,21 @@ public class CadenaDeCaracteres {
         System.out.println("C04) La frase sin la letra \"" + letra + "\" es: " + resultado.toString());
     }
     
+     public void C05(String frase){
+        StringBuilder resultado = new StringBuilder();
+        for(int i = frase.length() - 1; i >= 0; i--){
+            char caracter = frase.charAt(i);
+            if(isVowel(caracter)){
+                resultado.append(Character.toUpperCase(caracter));
+            }else{
+                resultado.append(caracter);
+            }
+        }
+        System.out.println("C05) La frase invertida es: " +  resultado.toString());
+    }
     
+    private boolean isVowel(char c){
+        return "aeiouAEIOU".indexOf(c) != - 1;
+    }
 
 }
