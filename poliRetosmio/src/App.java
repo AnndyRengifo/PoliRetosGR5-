@@ -1,5 +1,3 @@
-
-
 import Menu.menu;
 
 public class App {
