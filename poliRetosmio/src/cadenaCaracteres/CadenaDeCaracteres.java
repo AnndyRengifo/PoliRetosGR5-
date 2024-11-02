@@ -47,7 +47,7 @@ public class CadenaDeCaracteres {
                 case 5:
                     System.out.print("Ingresela frase: ");
                     String frase5 = sc.nextLine();
-                    C05(sc, frase5);
+                    C05(frase5);
                     break;
                 case 6:
                     System.out.println("Saliendo del menu de Cadena de Caracteres! :)");
