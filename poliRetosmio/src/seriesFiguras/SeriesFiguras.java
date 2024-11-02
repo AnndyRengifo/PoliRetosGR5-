@@ -8,48 +8,48 @@ public class SeriesFiguras {
         int n = sc.nextInt();
 
         System.out.println("F1: ");
-        f1(n);
+        Gr5_f1(n);
         System.out.println("F2: ");
-        f2(n);
+        Gr5_f2(n);
         System.out.println("F3: ");
-        f3(n);
+        Gr5_f3(n);
         System.out.println("F4: ");
-        f4(n);
+        Gr5_f4(n);
         System.out.println("F5: ");
-        f5(n);
+        Gr5_f5(n);
         System.out.println("F6: ");
-        f6(n);
+        Gr5_f6(n);
         System.out.println("F7: ");
-        f7(n);
+        Gr5_f7(n);
         System.out.println("F8: ");
-        f8(n);
+        Gr5_f8(n);
         System.out.println("F9: ");
-        f9(n);
+        Gr5_f9(n);
         System.out.println("F10: ");
-        f10(n);
+        Gr5_f10(n);
         System.out.println("F11: ");
-        f11(n);
+        Gr5_f11(n);
         System.out.println("F12: ");
-        f12(n);
+        Gr5_f12(n);
         System.out.println("F13: ");
-        f13(n);
+        Gr5_f13(n);
         System.out.println("F14: ");
-        f14(n);
+        Gr5_14(n);
         System.out.println("F15: ");
-        f15(n);
+        Gr5_f15(n);
         System.out.println("F16: ");
-        f16(n);
+        Gr5_16(n);
         System.out.println("F17: ");
-        f17(n);
+        Gr5_17(n);
         System.out.println("F18: ");
-        f18(n);
+        Gr18_f18(n);
         System.out.println("F19: ");
-        f19(n);
+        Gr5_f19(n);
         
 
     }
 
-    public void f1(int n){
+    public void Gr5_f1(int n){
         for (int i = 0; i < n; i++) {
             for(int j = 0; j < n; j++){
                 if(i == 0 || i == n - 1 || j == 0 || j == n - 1){
@@ -62,7 +62,7 @@ public class SeriesFiguras {
         }
     }
 
-    public void f2(int n){
+    public void Gr5_f2(int n){
         for (int i = 0; i < n; i++) {
             for(int j = 0; j < n; j++){
                 if(i == 0 || i == n - 1 || j == 0 || j == n - 1){
@@ -75,7 +75,7 @@ public class SeriesFiguras {
         }
     }
 
-    public void f3(int n){
+    public void Gr5_f3(int n){
         for (int i = 0; i <= n; i++) {
             for(int j = 1; j <= i; j++){
                 System.out.print("* ");
@@ -84,7 +84,7 @@ public class SeriesFiguras {
         }
     }
 
-    public void f4(int n) {
+    public void Gr5_f4(int n) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n - i - 1; j++) {
                 System.out.print("  "); 
@@ -96,7 +96,7 @@ public class SeriesFiguras {
         }
     }
 
-    public void f5(int n){
+    public void Gr5_f5(int n){
         for (int i = 0; i < n; i++) {
             for(int j = 0; j < i; j++){
                 System.out.print(" ");
@@ -108,7 +108,7 @@ public class SeriesFiguras {
         }
     }
 
-    public void f6(int n){
+    public void Gr5_f6(int n){
         for (int i = 0; i < n; i++) {
             for(int j = n - i; j > 1; j--){
                 System.out.print(" ");
@@ -120,7 +120,7 @@ public class SeriesFiguras {
         }
     }
 
-    public void f7(int n){
+    public void Gr5_f7(int n){
         for (int i = 0; i < n; i++) {
             for(int j = 0; j < i * 4; j++){
                 System.out.print(" ");
@@ -129,7 +129,7 @@ public class SeriesFiguras {
         }
     }
 
-    public void f8(int n){
+    public void Gr5_f8(int n){
         for (int i = 0; i < n; i++) {
             for(int j = n - i - 1; j > 0; j--){
                 System.out.print("    ");
@@ -138,7 +138,7 @@ public class SeriesFiguras {
         }
     }
 
-    public void f9(int n) {
+    public void Gr5_f9(int n) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < (n - i - 1) * 4; j++) {
                 System.out.print(" ");
@@ -153,7 +153,7 @@ public class SeriesFiguras {
         }
     }
 
-    public void f10(int n){
+    public void Gr5_f10(int n){
         for (int i = 0; i < n; i++) {
             for(int j = 0; j < i * 4; j++){
                 System.out.print(" ");
@@ -166,7 +166,7 @@ public class SeriesFiguras {
         }
     }
 
-    public void f11(int n){
+    public void Gr5_f11(int n){
         for (int i = 0; i < n; i++) {
             for(int j = 0; j < i * 4; j++){
                 System.out.print(" ");
@@ -179,7 +179,7 @@ public class SeriesFiguras {
         }
     }
 
-    public void f12(int n) {
+    public void Gr5_f12(int n) {
         System.out.println("...");
         for (int i = n; i >= 1; i--) {
             for (int j = 1; j <= i; j++) {
@@ -189,7 +189,7 @@ public class SeriesFiguras {
         }
     }
 
-    public void f13(int n){
+    public void Gr5_f13(int n){
         for (int i = 1; i <= n; i++) {
             for(int j = 1; j <= i; j++){
                 System.out.print(j);
@@ -199,7 +199,7 @@ public class SeriesFiguras {
         System.out.println("...");
     }
 
-    public void f14(int n) {
+    public void Gr5_14(int n) {
         int[][] triangulo = new int[n][n];
 
         for (int i = 0; i < n; i++) {
@@ -220,7 +220,7 @@ public class SeriesFiguras {
         }
     }
 
-    public void f15(int n){ 
+    public void Gr5_f15(int n){ 
         int[][] triangulo = new int[n][n];
         for(int i = 0; i < n; i++){
             triangulo[i][0] = 1;
@@ -240,7 +240,7 @@ public class SeriesFiguras {
         }
     }
 
-    public void f16(int n) {
+    public void Gr5_16(int n) {
         for (int i = 0; i < n; i++) {
             // Imprimir espacios en blanco antes del primer símbolo
             for (int j = 0; j < (n - i - 1); j++) {
@@ -266,7 +266,7 @@ public class SeriesFiguras {
     }
     
     
-    public void f17(int n) {
+    public void Gr5_17(int n) {
         for (int i = 0; i < n; i++) {
             // Imprimir espacios en blanco antes del primer número
             for (int j = 0; j < (n - i - 1); j++) {
@@ -291,7 +291,7 @@ public class SeriesFiguras {
         }
     }
     
-    public void f18(int n){
+    public void Gr18_f18(int n){
         int[][] triangulo = new int[n][n];
         for(int i = 0; i < n; i++){
             triangulo[i][0] = 1;
@@ -311,7 +311,7 @@ public class SeriesFiguras {
         }
     }
 
-    public void f19(int n) {
+    public void Gr5_f19(int n) {
         int[][] valores = new int[n][n];
         
         for (int i = 0; i < n; i++) {

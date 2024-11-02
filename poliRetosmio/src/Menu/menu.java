@@ -23,7 +23,6 @@ public class menu {
     public void mostrarMenu() {
         Scanner sc = new Scanner(System.in);
         int opcion = 0;
-
         
         do {
             System.out.println("");

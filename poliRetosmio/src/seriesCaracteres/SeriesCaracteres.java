@@ -27,8 +27,6 @@ public class SeriesCaracteres {
         s8(n);
         System.out.print("S9: ");
         s9(n);
-
-
     }
 
     public void s1(int n){
