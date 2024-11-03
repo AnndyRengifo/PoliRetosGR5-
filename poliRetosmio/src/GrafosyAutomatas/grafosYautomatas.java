@@ -42,9 +42,9 @@ public class grafosYautomatas {
                 
                 case 2:
                     System.out.println("\n");
-                    System.out.print("\t  Ingrese los valores a evaluar (a* b+ c): ");  
+                    System.out.print("\t  Ingrese los valores a evaluar (ab+ca): ");  
                     String entrada1 = sc.nextLine();
-                    GR5_Automata1(entrada1);
+                    GR5_Automata2(entrada1);
                     break;
 
                 case 3:
@@ -102,19 +102,25 @@ public class grafosYautomatas {
         char [] letras = entrada2.toCharArray();
         for (char letra : letras) {
             switch (estado) {
-                case 0: switch (letra) {case 'a': estado = 1; default: estado = e; break;}
+                case 0: switch (letra) { case 'a': estado = 1; break; default: estado = e; break; }
                 break;
-                case 1: switch (letra) {case 'b': estado = 2; default: estado = e; break;}
+                case 1: switch (letra) { case 'b': estado = 2; break; default: estado = e; break; }
                 break;
-                
-                    default:
-                        break;
-                }
+                case 2: switch (letra) { case 'b': estado = 2; break; case 'c': estado = 3; break; default: estado = e; break; }
+                break;
+                case 3: switch(letra){ case 'a': estado = 4; break; default: estado = e; break; }
+                break;
                 default: estado = e; break;
             }
-            
         }
+        if(estado == 4){
+            System.out.println("\t\t |--> La cadena es aceptada ");
+        }else{
+            System.out.println("\t\t |--> La cadena no es aceptada ");
+        }
+            
     }
+    
 
     public void GR5_Automata3(){
 
