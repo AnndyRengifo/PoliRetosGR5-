@@ -9,7 +9,9 @@ public class seriesRecursion {
         int opcion=0;
         do {
             System.out.println("\n");
-            System.out.println("\t Bienvenido a  la serie de recursion");
+            System.out.println("\t |---------------------------------------------------|"); 
+            System.out.println("\t           Bienvenido a  la serie de recursion        ");
+            System.out.println("\t |---------------------------------------------------|"); 
             System.out.println("\t 1. Obtener el factorial de un numero ");
             System.out.println("\t 2. Obtener la suma de dos numeros");
             System.out.println("\t 3. Obtener la multiplicacion de dos numeros");
@@ -101,17 +103,14 @@ public class seriesRecursion {
 
     public int GR5_obtenerSuma(int numero2, int numero3){
         return numero3 ==0? numero2: GR5_obtenerSuma(numero2+1, numero3-1);
-
     }
 
     public int GR5_obtenerMultiplicacion(int numero4, int numero5){
         return numero5 ==0? 0:  numero4 + GR5_obtenerMultiplicacion(numero4, numero5-1);
-
     }
 
     public int GR5_obtenerPotencia(int numero6, int numero7){
         return numero7==0? 1:  numero6 * GR5_obtenerPotencia(numero6, numero7-1);
-
     }
 
     public void GR5_conteoProgresivo(int numero8){
