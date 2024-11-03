@@ -14,7 +14,7 @@ public class grafosYautomatas {
             System.out.println("\t 1. Automata para validar: a*b+c");
             System.out.println("\t 2. Automata para validar: ab+ca");
             System.out.println("\t 3. Automata para validar: a+/b+/c+");
-            System.out.println("\t 4. Automata para validar: 1+/0+1*");
+            System.out.println("\t 4. Automata para validar: 1+/0+ 1*");
             System.out.println("\t 5. Compilador para validar un numero decimal");  
             System.out.println("\t 6. Compilador para validar la declaracion de variables en java");
             System.out.println("\t 7. Compilador para validar el siguiente lenguaje L:{for, else, ifelse, foreach}");
@@ -48,9 +48,17 @@ public class grafosYautomatas {
                     break;
 
                 case 3:
+                    System.out.println("\n");
+                    System.out.print("\t  Ingrese los valores a evaluar (a*/b+/c+): ");  
+                    String entrada2 = sc.nextLine();
+                    GR5_Automata3(entrada2);
                     break;
 
                 case 4:
+                    System.out.println("\n");
+                    System.out.print("\t  Ingrese los valores a evaluar (1+/0+ 1*): ");  
+                    String entrada3 = sc.nextLine();
+                    GR5_Automata4(entrada3);
                     break;
 
                 case 5:
@@ -117,16 +125,15 @@ public class grafosYautomatas {
             System.out.println("\t\t |--> La cadena es aceptada ");
         }else{
             System.out.println("\t\t |--> La cadena no es aceptada ");
-        }
-            
+        }   
     }
     
 
-    public void GR5_Automata3(){
+    public void GR5_Automata3(String entrada2){
 
     }
 
-    public void GR5_Automata4(){
+    public void GR5_Automata4(String entrada3){
 
     }
 
