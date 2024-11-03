@@ -3,23 +3,25 @@ import java.util.*;
 
 public class CadenaDeCaracteres {
 
-    
+
     public void generarCaracteres(Scanner sc) {
 
         String opcion;
         do {
-            System.out.println("Bienvenido a la Cadena de caracteres!");
-            System.out.println("1. Contar vocales");
-            System.out.println("2. Contar Letras");
-            System.out.println("3. Eliminar vocal");
-            System.out.println("4. Eliminar letra");
-            System.out.println("5. Invertir palabra vocales");
-            System.out.println("6. Invertir palabra letras");
-            System.out.println("7. Mayusculas sin J");
-            System.out.println("8. Anagramas");
-            System.out.println("9. Convertir mayusculas y minusculas");
-            System.out.println("X. Salir");
-            System.out.print("Ingrese la opción: ");
+            System.out.println("\t |---------------------------------------------------|"); 
+            System.out.println("\t          Bienvenido a la Cadena de caracteres!       ");
+            System.out.println("\t |---------------------------------------------------|"); 
+            System.out.println("\t1. Contar vocales");
+            System.out.println("\t2. Contar Letras");
+            System.out.println("\t3. Eliminar vocal");
+            System.out.println("\t4. Eliminar letra");
+            System.out.println("\t5. Invertir palabra vocales");
+            System.out.println("\t6. Invertir palabra letras");
+            System.out.println("\t7. Mayusculas sin J");
+            System.out.println("\t8. Anagramas");
+            System.out.println("\t9. Convertir mayusculas y minusculas");
+            System.out.println("\tX. Salir");
+            System.out.print("\t Ingrese la opción: ");
 
 
             opcion = sc.nextLine();
@@ -27,37 +29,37 @@ public class CadenaDeCaracteres {
 
             switch (opcion) {
                 case "1":
-                    System.out.print("Ingrese la frase: ");
+                    System.out.print("\t Ingrese la frase: ");
                     String frase = sc.nextLine();
                     C01(frase);
                     break;
                 case "2":
-                    System.out.print("Ingrese la frase: ");
+                    System.out.print("\t Ingrese la frase: ");
                     String frase2 = sc.nextLine();
                     C02(frase2);
                     break;
                 case "3":
-                    System.out.print("Ingresela frase: ");
+                System.out.print("\t Ingresela frase: ");
                     String frase3 = sc.nextLine();
                     C03(sc, frase3);
                     break;
                 case "4":
-                    System.out.print("Ingrese la frase: ");
+                    System.out.print("\t Ingrese la frase: ");
                     String frase4 = sc.nextLine();
                     C04(sc, frase4);
                     break;
                 case "5":
-                    System.out.print("Ingrese la frase: ");
+                    System.out.print("\t Ingrese la frase: ");
                     String frase5 = sc.nextLine();
                     C05(frase5);
                     break;
                 case "6":
-                    System.out.print("Ingrese la frase: ");
+                    System.out.print("\t Ingrese la frase: ");
                     String frase6 = sc.nextLine();
                     C06(frase6);
                     break;
                 case "7":
-                    System.out.print("Ingrese la frase: ");
+                    System.out.print("\t Ingrese la frase: ");
                     String frase7 = sc.nextLine();
                     C07(frase7);
                     break;
@@ -65,16 +67,16 @@ public class CadenaDeCaracteres {
                     C08();
                     break;
                 case "9":
-                    System.out.print("Ingrese la frase: ");
+                    System.out.print("\t Ingrese la frase: ");
                     String frase9 = sc.nextLine();
                     C09(sc, frase9);
                     break;
                 case "x":
                 case "X":
-                    System.out.println("Saliendo del menu de Cadena de Caracteres! :)");
+                    System.out.println("\t Saliendo del menu de Cadena de Caracteres! :)");
                     break;
                 default:
-                    System.out.println("Opcion no valida, elija  una opción del 1 al 3");
+                    System.out.println("\t Opcion no valida, elija  una opción del 1 al 3");
             }
         }while(!opcion.equalsIgnoreCase("X"));
     }
@@ -88,7 +90,7 @@ public class CadenaDeCaracteres {
                 contarVocales++;
             }
         }
-        System.out.println("C01) La frase \"" + frase + "\" tiene " +  contarVocales + " vocales.");
+        System.out.println("    C01) La frase \"" + frase + "\" tiene " +  contarVocales + " vocales.");
     }
 
     public void C02(String frase){
@@ -99,21 +101,21 @@ public class CadenaDeCaracteres {
                 contarLetras++;
             }
         }
-        System.out.println("C02) La frase \"" + frase + "\" tiene " + contarLetras + " letras.");
+        System.out.println("    C02) La frase \"" + frase + "\" tiene " + contarLetras + " letras.");
     }
 
     public void C03(Scanner sc, String frase) {
         char vocal;
         
         while (true) {
-            System.out.print("Ingrese la vocal a eliminar: ");
+            System.out.print("\t Ingrese la vocal a eliminar: ");
             String entrada = sc.nextLine().toLowerCase(); 
     
             if (entrada.length() == 1 && "aeiou".indexOf(entrada.charAt(0)) != -1) {
                 vocal = entrada.charAt(0);
                 break;
             } else {
-                System.out.println("ERROR!. Por favor, ingrese solo una vocal (a, e, i, o, u).");
+                System.out.println("    ERROR!. Por favor, ingrese solo una vocal (a, e, i, o, u).");
             }
         }
     
@@ -126,21 +128,21 @@ public class CadenaDeCaracteres {
                 resultado.append(" ");
             }
         }
-        System.out.println("C03) La frase sin la vocal \"" + vocal + "\" es: " + resultado.toString());
+        System.out.println("    C03) La frase sin la vocal \"" + vocal + "\" es: " + resultado.toString());
     }
     
     public void C04(Scanner sc, String frase) {
         char letra;
     
         while (true) {
-            System.out.print("Ingrese la letra a eliminar: ");
+            System.out.print("\t Ingrese la letra a eliminar: ");
             String entrada = sc.nextLine();
     
             if (entrada.length() == 1 && Character.isLetter(entrada.charAt(0))) {
                 letra = entrada.charAt(0);
                 break;
             } else {
-                System.out.println("ERROR!! Por favor, ingrese solo una letra.");
+                System.out.println("    ERROR!! Por favor, ingrese solo una letra.");
             }
         }
     
@@ -153,7 +155,7 @@ public class CadenaDeCaracteres {
                 resultado.append(" ");
             }
         }
-        System.out.println("C04) La frase sin la letra \"" + letra + "\" es: " + resultado.toString());
+        System.out.println("    C04) La frase sin la letra \"" + letra + "\" es: " + resultado.toString());
     }
     
     public void C05(String frase) {
@@ -166,7 +168,7 @@ public class CadenaDeCaracteres {
                 resultado.append(caracter);
             }
         }
-        System.out.println("C05) La frase invertida es: " + resultado.toString());
+        System.out.println("    C05) La frase invertida es: " + resultado.toString());
     }
     
     public void C06(String frase) { //hacer pequenios arreglos :(
@@ -192,7 +194,7 @@ public class CadenaDeCaracteres {
             resultadoFrase.append(resultadoPalabra);
         }
     
-        System.out.println("C06) La frase invertida es: " + resultadoFrase.toString());
+        System.out.println("    C06) La frase invertida es: " + resultadoFrase.toString());
     }
                
     public void C07(String frase){
@@ -204,7 +206,7 @@ public class CadenaDeCaracteres {
                 resultado.append(Character.toUpperCase(caracter));
             }
         }
-        System.out.println("C07) La frase en mayusculas y sin 'J' es: " + resultado.toString());
+        System.out.println("    C07) La frase en mayusculas y sin 'J' es: " + resultado.toString());
     }
 
     public void C08(){ //consultar como funciona!! :C
@@ -223,31 +225,31 @@ public class CadenaDeCaracteres {
         int intentos = 0;
         boolean acertado = false;
 
-        System.out.println("Palabra: " + palabra);
-        System.out.println("Ingrese un anagrama de la palabra: ");
+        System.out.println("\t Palabra: " + palabra);
+        System.out.println("\t Ingrese un anagrama de la palabra: ");
 
         while(intentos < 3 && !acertado){
             String intento = sc.nextLine();
 
             if(intento.equalsIgnoreCase(respuestaCorrecta)){
                 acertado = true;
-                System.out.println("Acertaste! el anagrama es: " + respuestaCorrecta);
+                System.out.println("\t Acertaste! el anagrama es: " + respuestaCorrecta);
             }else{
                 intentos++;
                 if(intentos < 3){
-                    System.out.println("Intentos restantes: " + (3 - intentos));
+                    System.out.println("\t Intentos restantes: " + (3 - intentos));
                 }
             }
         }
         if(!acertado){
-            System.out.println("Perdiste! la respuesta correcta era: "+ respuestaCorrecta);
+            System.out.println("\t Perdiste! la respuesta correcta era: "+ respuestaCorrecta);
         }
         sc.close();
     }
 
     public void C09(Scanner sc, String frase){
         String resultado = convertirFrase(frase);
-        System.out.println("C09) Salida: " + resultado);
+        System.out.println("    C09) Salida: " + resultado);
 
     }
     private String convertirFrase(String frase){
