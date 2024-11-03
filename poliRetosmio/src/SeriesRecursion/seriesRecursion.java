@@ -119,12 +119,12 @@ public class seriesRecursion {
             return;
         }
         GR5_conteoProgresivo(numero8 - 1);
-        System.out.print("\t "+numero8+" ");
+        System.out.print(" "+numero8+" ");
     }
 
     public void GR5_conteoRegresivo(int numero9){
         if(numero9 > 0){
-            System.out.print("\t"+numero9+" ");
+            System.out.print(" "+numero9+" ");
             GR5_conteoRegresivo(numero9 - 1);
         }
     }
