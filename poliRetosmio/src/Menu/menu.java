@@ -1,7 +1,7 @@
 package Menu;
 import java.util.Scanner;
 
-//import GrafosyAutomatas.grafosYautomatas;
+import GrafosyAutomatas.grafosYautomatas;
 import SeriesRecursion.seriesRecursion;
 import seriesCaracteres.SeriesCaracteres;
 import seriesFiguras.SeriesFiguras;
@@ -74,8 +74,9 @@ public class menu {
                         break;
 
                     case 8:
-                        //grafosYautomatas grafosAutomata = new grafosYautomatas();
-                    break;
+                        grafosYautomatas grafosAutomata = new grafosYautomatas();
+                        grafosAutomata.GR5_generarGrafosyAutomatas(sc);
+                        break;
 
                     case 9:
                         System.out.println("\n\t Saliendo del programa");

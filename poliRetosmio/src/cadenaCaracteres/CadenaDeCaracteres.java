@@ -8,6 +8,7 @@ public class CadenaDeCaracteres {
 
         String opcion;
         do {
+            System.out.println("");
             System.out.println("\t |---------------------------------------------------|"); 
             System.out.println("\t          Bienvenido a la Cadena de caracteres!       ");
             System.out.println("\t |---------------------------------------------------|"); 
@@ -71,12 +72,11 @@ public class CadenaDeCaracteres {
                     String frase9 = sc.nextLine();
                     C09(sc, frase9);
                     break;
-                case "x":
                 case "X":
                     System.out.println("\t Saliendo del menu de Cadena de Caracteres! :)");
                     break;
                 default:
-                    System.out.println("\t Opcion no valida, elija  una opción del 1 al 3");
+                    System.out.println("\t Opcion no valida, elija  una opción del 1 al 9");
             }
         }while(!opcion.equalsIgnoreCase("X"));
     }
