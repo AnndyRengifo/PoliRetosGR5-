@@ -24,9 +24,10 @@ public class grafosYautomatas {
 
             try{
                 opcion1 = sc.nextInt();
+                sc.nextLine();
             }catch(Exception e){
                 System.out.println(" ");
-                System.out.println("\t Opción no válida. Por favor, ingrese un número del 1 al 7.");
+                System.out.println("\t Opción no válida. Por favor, ingrese un número del 1 al 9.");
                 sc.next();
                 continue; 
             }
@@ -35,8 +36,8 @@ public class grafosYautomatas {
                 case 1:
                     System.out.println("\n");
                     System.out.print("\t  Ingrese los valores a evaluar (a* b+ c): ");  
-                    String frase1 = sc.nextLine();
-                    GR5_Automata1(frase1);
+                    String entrada = sc.nextLine();
+                    GR5_Automata1(entrada);
                     break;
                 
                 case 2:
@@ -65,17 +66,34 @@ public class grafosYautomatas {
                     System.out.println("\t Saliendo del menu de Automatas! :)");
                     System.out.println("\n");
                     break;
-            
-                default:
-                    System.out.println("\t Opcion no valida, elija  una opción del 1 al 9");
-                    System.out.println("\n");
-                    break;
             }
-        }while(opcion1 != 5);
+        }while(opcion1 != 9);
     }
 
-    public void GR5_Automata1(String frase1){
-        
+    public void GR5_Automata1(String entrada){
+        int e = -1, estado  = 0;
+        char [] letras = entrada.toCharArray();
+        for (int letra : letras) {
+            switch (estado) {
+                case 0:
+                    switch (letra) { case 'a': estado = 1; break; case 'b': estado = 2; break; default: estado = e; break; }
+                break;
+                case 1:
+                    switch (letra) { case 'a': estado = 1;  break; case 'b': estado = 2; break; default: estado = e; break; }
+                break;
+                case 2:
+                    switch (letra) { case 'b': estado = 2; break; case 'c': estado = 3; break; default: estado = e; break; }
+                break;
+                case 3:
+                    switch (letra) { default: estado = e; break; }
+                break;
+            }            
+        }
+        if(estado == 3){
+            System.out.println("\t |-->          La cadena es aceptada                   ");
+        }else{
+            System.out.println("\t |-->          La cadena no es aceptada                ");
+        }        
     }
 
     public void GR5_Automata2(){
