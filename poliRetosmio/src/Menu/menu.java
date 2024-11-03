@@ -1,5 +1,8 @@
 package Menu;
 import java.util.Scanner;
+
+import GrafosyAutomatas.grafosYautomatas;
+import SeriesRecursion.seriesRecursion;
 import seriesCaracteres.SeriesCaracteres;
 import seriesFiguras.SeriesFiguras;
 import seriesNumericas.SeriesNumericas;
@@ -33,7 +36,11 @@ public class menu {
             System.out.println("\t  2. Serie de caracteres");
             System.out.println("\t  3. Serie de figuras");
             System.out.println("\t  4. Cadena de Caracteres");
-            System.out.println("\t  5. Salir");
+            System.out.println("\t  5. Arrays");
+            System.out.println("\t  6. Loading");
+            System.out.println("\t  7. Recursion");
+            System.out.println("\t  8. Grafos y Automatas");
+            System.out.println("\t  9. Salir");
             System.out.print("\t Seleccione una opcion: ");
             
             if (sc.hasNextInt()) {
@@ -57,6 +64,20 @@ public class menu {
                         cadena.generarCaracteres(sc);
                         break;
                     case 5:
+                        break;
+                    case 6:
+
+                        break;
+                    case 7:
+                        seriesRecursion  recursion = new seriesRecursion();
+                        recursion.generarRecursion(sc);
+                        break;
+
+                    case 8:
+                        grafosYautomatas grafosAutomata = new grafosYautomatas();
+                    break;
+
+                    case 9:
                         System.out.println("\n\t Saliendo del programa");
                         break;
                     default:
@@ -67,7 +88,7 @@ public class menu {
                 sc.next(); 
             }
             System.out.println("\n");
-        } while (opcion != 5);
+        } while (opcion != 9);
 
         sc.close();
     }

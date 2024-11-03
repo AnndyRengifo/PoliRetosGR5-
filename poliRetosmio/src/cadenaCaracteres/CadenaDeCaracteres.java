@@ -2,6 +2,8 @@ package cadenaCaracteres;
 import java.util.*;
 
 public class CadenaDeCaracteres {
+
+    
     public void generarCaracteres(Scanner sc) {
 
         String opcion;
