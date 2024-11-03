@@ -4,7 +4,7 @@ import java.util.*;
 public class CadenaDeCaracteres {
     public void generarCaracteres(Scanner sc) {
 
-        int opcion;
+        String opcion;
         do {
             System.out.println("Bienvenido a la Cadena de caracteres!");
             System.out.println("1. Contar vocales");
@@ -16,67 +16,65 @@ public class CadenaDeCaracteres {
             System.out.println("7. Mayusculas sin J");
             System.out.println("8. Anagramas");
             System.out.println("9. Convertir mayusculas y minusculas");
-            System.out.println("10. Salir");
+            System.out.println("X. Salir");
             System.out.print("Ingrese la opción: ");
 
-            while(!sc.hasNext()){
-                System.out.println("Error, ingrese un número");
-                sc.next();
-            }
-            opcion = sc.nextInt();
+
+            opcion = sc.nextLine();
             sc.nextLine();
 
             switch (opcion) {
-                case 1:
+                case "1":
                     System.out.print("Ingrese la frase: ");
                     String frase = sc.nextLine();
                     C01(frase);
                     break;
-                case 2:
+                case "2":
                     System.out.print("Ingrese la frase: ");
                     String frase2 = sc.nextLine();
                     C02(frase2);
                     break;
-                case 3:
+                case "3":
                     System.out.print("Ingresela frase: ");
                     String frase3 = sc.nextLine();
                     C03(sc, frase3);
                     break;
-                case 4:
+                case "4":
                     System.out.print("Ingrese la frase: ");
                     String frase4 = sc.nextLine();
                     C04(sc, frase4);
                     break;
-                case 5:
+                case "5":
                     System.out.print("Ingrese la frase: ");
                     String frase5 = sc.nextLine();
                     C05(frase5);
                     break;
-                case 6:
+                case "6":
                     System.out.print("Ingrese la frase: ");
                     String frase6 = sc.nextLine();
                     C06(frase6);
                     break;
-                case 7:
+                case "7":
                     System.out.print("Ingrese la frase: ");
                     String frase7 = sc.nextLine();
                     C07(frase7);
                     break;
-                case 8:
+                case "8":
                     C08();
                     break;
-                case 9:
+                case "9":
                     System.out.print("Ingrese la frase: ");
                     String frase9 = sc.nextLine();
                     C09(sc, frase9);
                     break;
-                case 10:
+                case "x":
+                case "X":
                     System.out.println("Saliendo del menu de Cadena de Caracteres! :)");
                     break;
                 default:
                     System.out.println("Opcion no valida, elija  una opción del 1 al 3");
             }
-        }while(opcion !=10);
+        }while(!opcion.equalsIgnoreCase("X"));
     }
 
     public void C01(String frase) {
