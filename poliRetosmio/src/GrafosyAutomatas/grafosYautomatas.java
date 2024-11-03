@@ -41,6 +41,10 @@ public class grafosYautomatas {
                     break;
                 
                 case 2:
+                    System.out.println("\n");
+                    System.out.print("\t  Ingrese los valores a evaluar (a* b+ c): ");  
+                    String entrada1 = sc.nextLine();
+                    GR5_Automata1(entrada1);
                     break;
 
                 case 3:
@@ -75,29 +79,41 @@ public class grafosYautomatas {
         char [] letras = entrada.toCharArray();
         for (int letra : letras) {
             switch (estado) {
-                case 0:
-                    switch (letra) { case 'a': estado = 1; break; case 'b': estado = 2; break; default: estado = e; break; }
+                case 0: switch (letra) { case 'a': estado = 1; break; case 'b': estado = 2; break; default: estado = e; break; }
                 break;
-                case 1:
-                    switch (letra) { case 'a': estado = 1;  break; case 'b': estado = 2; break; default: estado = e; break; }
+                case 1: switch (letra) { case 'a': estado = 1; break; case 'b': estado = 2; break; default: estado = e; break; }
                 break;
-                case 2:
-                    switch (letra) { case 'b': estado = 2; break; case 'c': estado = 3; break; default: estado = e; break; }
+                case 2: switch (letra) { case 'b': estado = 2; break; case 'c': estado = 3; break; default: estado = e; break; }
                 break;
-                case 3:
-                    switch (letra) { default: estado = e; break; }
+                case 3: switch (letra) { default: estado = e; break; } 
                 break;
-            }            
+                default: estado = e; break;
+            }
         }
         if(estado == 3){
-            System.out.println("\t |-->          La cadena es aceptada                   ");
+            System.out.println("\t\t |--> La cadena es aceptada ");
         }else{
-            System.out.println("\t |-->          La cadena no es aceptada                ");
-        }        
+            System.out.println("\t\t |--> La cadena no es aceptada ");
+        }
     }
 
-    public void GR5_Automata2(){
-
+    public void GR5_Automata2(String entrada2){
+        int e=-1, estado = 0;
+        char [] letras = entrada2.toCharArray();
+        for (char letra : letras) {
+            switch (estado) {
+                case 0: switch (letra) {case 'a': estado = 1; default: estado = e; break;}
+                break;
+                case 1: switch (letra) {case 'b': estado = 2; default: estado = e; break;}
+                break;
+                
+                    default:
+                        break;
+                }
+                default: estado = e; break;
+            }
+            
+        }
     }
 
     public void GR5_Automata3(){

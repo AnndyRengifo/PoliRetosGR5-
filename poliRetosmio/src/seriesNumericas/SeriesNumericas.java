@@ -35,7 +35,7 @@ public class SeriesNumericas {
     public void g5_crearserieFibonacci(int numTerminos){
         int a = 0, b = 1, temp;
         for(int i = 0; i < numTerminos; i++){
-            System.out.print(a + " ");
+            System.out.print(" " + a + " ");
             temp = a;
             a = b;
             b = temp + b;
@@ -46,7 +46,7 @@ public class SeriesNumericas {
     public void g5_crearserieAlternada(int numTerminos){
         
         for(int i = 1; i <= numTerminos; i++){
-            System.out.print((i * 2 - 1) + " ");
+            System.out.print(" "+(i * 2 - 1) + "");
             System.out.print("0 ");
         }
         System.out.println();
@@ -57,12 +57,12 @@ public class SeriesNumericas {
     
         for(int i = 0; i < numTerminos; i++){
             if(i % 2 == 0){
-                System.out.print(a + "/" + (2 * i + 1) + " ");
+                System.out.print(" " + a + "/" + (2 * i + 1) + " ");
                 temp = a;
                 a = b;
                 b = temp + b;
             }else{
-                System.out.print("0/" + (2 * i + 1) + " ");
+                System.out.print(" "+"0/" + (2 * i + 1) + " ");
             }
         }
         System.out.println();
@@ -72,7 +72,7 @@ public class SeriesNumericas {
         int a = 0, b = 1, temp;
         
         for(int i = 0; i < numTerminos; i++){
-            System.out.print(a + "/" + (2 * (i + 1)) + " ");
+            System.out.print(" " + a + "/" + (2 * (i + 1)) + " ");
             temp = a;
             a = b;
             b = temp + b;
@@ -84,7 +84,7 @@ public class SeriesNumericas {
                 int count = 0, num = 2;
         while (count < numTerminos){
             if (esPrimo(num)){
-                System.out.print(num + " ");
+                System.out.print(" "+num + " ");
                 count++;
             }
             num++;
@@ -103,7 +103,7 @@ public class SeriesNumericas {
     public void g5_crearserieProgresionCuadratica(int numTerminos){
         
         for(int i = 0; i <= numTerminos; i++){
-            System.out.print((i * (i + 1)) + " ");
+            System.out.print(" "+(i * (i + 1)) + " ");
         }
         System.out.println();
     }
@@ -111,8 +111,7 @@ public class SeriesNumericas {
     public void g5_crearserieIncrementoDeTres(int numTerminos){
         
         for(int i = 0; i < numTerminos; i++){
-            System.out.print((i * 3 + 1) + " ");
-
+            System.out.print(" "+(i * 3 + 1) + " ");
         }
         System.out.println();
     }
@@ -120,7 +119,7 @@ public class SeriesNumericas {
     public void g5_crearserieIncrementoDeCinco(int numTerminos){
        
         for(int i = 0; i <= numTerminos; i++){
-            System.out.print((i * 5 + 3) + " ");
+            System.out.print(" "+(i * 5 + 3) + " ");
         }
         System.out.println();
     }
@@ -128,7 +127,7 @@ public class SeriesNumericas {
     public void g5_crearseriePotenciasDeDos(int numTerminos){
         
         for (int i = 0; i < numTerminos; i++) {
-            System.out.print((int)Math.pow(2, i) + " ");
+            System.out.print(" "+(int)Math.pow(2, i) + " ");
         }
         System.out.println();
     }
@@ -136,14 +135,15 @@ public class SeriesNumericas {
     public void g5_crearseriePotenciasDeTres(int numTerminos){
         
         for(int i = 0; i <= numTerminos; i++){
-            System.out.print((int)Math.pow(3, i) + " ");
+            System.out.print(" "+(int)Math.pow(3, i) + " ");
         }
+        System.out.println();
     }
 
     public void g5_crearserieCuadradosPerfectos(int numTerminos){
         
         for(int i = 1; i <= numTerminos; i++){
-            System.out.print((i * i) + " ");
+            System.out.print(" "+(i * i) + " ");
         }
         System.out.println();
     }
