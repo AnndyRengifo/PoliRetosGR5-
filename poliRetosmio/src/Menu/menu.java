@@ -1,7 +1,7 @@
 package Menu;
 import java.util.Scanner;
 
-import GrafosyAutomatas.grafosYautomatas;
+//import GrafosyAutomatas.grafosYautomatas;
 import SeriesRecursion.seriesRecursion;
 import seriesCaracteres.SeriesCaracteres;
 import seriesFiguras.SeriesFiguras;
@@ -74,7 +74,7 @@ public class menu {
                         break;
 
                     case 8:
-                        grafosYautomatas grafosAutomata = new grafosYautomatas();
+                        //grafosYautomatas grafosAutomata = new grafosYautomatas();
                     break;
 
                     case 9:
