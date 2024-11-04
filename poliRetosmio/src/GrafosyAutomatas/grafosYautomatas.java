@@ -2,6 +2,7 @@ package GrafosyAutomatas;
 import java.util.*;
 
 
+
 public class grafosYautomatas {
 
     public void GR5_generarGrafosyAutomatas(Scanner sc){
@@ -311,43 +312,117 @@ public class grafosYautomatas {
     
     public void GR5_CompiladordeLenguaje(String entrada6){
         
+        int estado = 0; // Estado inicial
+        StringBuilder palabra = new StringBuilder(); // Para construir la palabra actual
+    
+        for (char c : entrada6.toCharArray()) {
+            switch (estado) {
+                case 0: // Estado inicial
+                    if (Character.isLetter(c)) {
+                        palabra.append(c); // Comenzamos a construir una palabra
+                        estado = 1; // Transición al estado 1
+                    } else if (c == ' ') {
+                        // Ignorar espacios
+                    } else {
+                        System.out.println("\t\t |--> Error: Caracter no válido");
+                        return;
+                    }
+                    break;
+    
+                case 1: // Construyendo la palabra
+                    if (Character.isLetter(c) || Character.isDigit(c)) {
+                        palabra.append(c); // Continuar construyendo la palabra
+                    } else if (c == '(') {
+                        // Verificamos si la palabra es válida antes de aceptar el paréntesis
+                        if (esPalabraClaveValida(palabra.toString())) {
+                            System.out.println("\t\t |--> Palabra clave aceptada: " + palabra + " (con paréntesis)");
+                            palabra.setLength(0); // Reiniciar la palabra
+                            estado = 0; // Volver al estado inicial
+                        } else {
+                            System.out.println("\t\t |--> Error: Palabra clave no válida: " + palabra);
+                            return;
+                        }
+                    } else {
+                        System.out.println("\t\t |--> Error: Caracter no válido");
+                        return;
+                    }
+                    break;
+    
+                default:
+                    System.out.println("\t\t |--> Error: Estado no reconocido");
+                    return;
+            }
+        }
+    
+        // Verificar si hay una palabra pendiente al final
+        if (palabra.length() > 0) {
+            if (esPalabraClaveValida(palabra.toString())) {
+                System.out.println("\t\t |--> Palabra clave aceptada: " + palabra + " (sin paréntesis)");
+            } else {
+                System.out.println("\t\t |--> Error: Palabra clave no válida: " + palabra);
+            }
+        }
+    }
+    
+    // Método para verificar si la palabra es una palabra clave válida
+    private boolean esPalabraClaveValida(String palabra) {
+        switch (palabra) {
+            case "for":
+            case "if":
+            case "else":
+            case "ifelse":
+            case "foreach":
+                return true;
+            default:
+                return false;
+        }
     }
 
     public void GR5_ValidadordeClaves(String entrada7){
         int estado = 0, e = -1;
-        for (char clave : entrada7.toCharArray()) {
+        boolean tieneMayuscula = false;
+        boolean tieneMinuscula = false;
+        boolean tieneNumero = false;
+        boolean tieneCaracterEspecial = false;
+
+        for (char clave: entrada7.toCharArray()) {
             switch (estado) {
                 case 0:
                     if (Character.isUpperCase(clave)) {
-                        estado = 1;
-                    } else {
-                        estado = e;                      
+                        tieneMayuscula = true;
+                        estado = 1; // Transición al estado 1
+                    } else if (Character.isLowerCase(clave)) {
+                        tieneMinuscula = true;
+                        estado = 1; // Transición al estado 1
+                    } else if (Character.isDigit(clave)) {
+                        tieneNumero = true;
+                        estado = 1; // Transición al estado 1
+                    } else if (!Character.isLetterOrDigit(clave)) {
+                        tieneCaracterEspecial = true;
+                        estado = 1; // Transición al estado 1
                     }
                 break;
-                    
+
                 case 1:
-                    if (Character.isLowerCase(clave)) {
-                        estado = 2;
-                    } else {
-                        estado = e;                     
+                    if (Character.isUpperCase(clave)) {
+                        tieneMayuscula = true;
+                    } else if (Character.isLowerCase(clave)) {
+                        tieneMinuscula = true;
+                    } else if (Character.isDigit(clave)) {
+                        tieneNumero = true;
+                    } else if (!Character.isLetterOrDigit(clave)) {
+                        tieneCaracterEspecial = true;
                     }
                 break;
-                    
-                case 2:
-                    if (Character.isDigit(clave)) {
-                        estado = 3;
-                    } else {
-                        estado = e;
-                    }
-                break;
-                    
-                default: estado = 0; break;
-            }    
+            
+                default: estado = e; break;
+            }
         }
-        if (estado == 3) {
-            System.out.println("\t\t |--> Felicidades... Es una clave valida");
+        if (tieneMayuscula  && tieneMinuscula && tieneNumero && tieneCaracterEspecial) {
+            System.out.println("\t\t |--> Felicidades... Es una clave valida y segura");
         } else {
             System.out.println("\t\t |--> No es una clave valida");
         }
+
     }
 }
