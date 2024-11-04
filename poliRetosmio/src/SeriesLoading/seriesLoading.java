@@ -462,20 +462,158 @@ public class seriesLoading {
         System.out.println(" ");
     }
         
-    
-
     public void GR5_simularLongitudDeSenial(){
+        System.out.println(" ");
+        Random random = new Random();
+        int nivelMaximo = 50;
+        // Definición de colores ANSI
+        String[] colores = {
+            "\u001B[30m", // Negro
+            "\u001B[31m", // Rojo
+            "\u001B[32m", // Verde
+            "\u001B[33m", // Amarillo
+            "\u001B[34m", // Azul
+            "\u001B[35m", // Magenta
+            "\u001B[36m", // Cian
+            "\u001B[37m", // Blanco
+        };
+        String resetColor = "\u001B[0m";
 
+
+        for (int nivel = 1; nivel <= nivelMaximo; nivel++) {
+            int longitud = 2 * (random.nextInt(5) + 1) + 1; 
+
+            int lado = (longitud - 1) / 2;
+
+            // Construye la fila simétrica con el eje central
+            StringBuilder fila = new StringBuilder();
+            for (int i = 0; i < lado; i++) {
+                fila.append("-");
+            }
+            fila.append("|"); // Eje central
+            for (int i = 0; i < lado; i++) {
+                fila.append("-");
+            }
+
+            // Calcula el espacio para centrar la fila
+            int anchoConsola = 50; // Puedes ajustar este valor según el ancho de tu consola
+            int espaciosIzquierda = (anchoConsola - fila.length()) / 2;
+
+            // Asegúrate de que no haya espacios negativos
+            if (espaciosIzquierda < 0) {
+                espaciosIzquierda = 0;
+            }
+
+            // Crea los espacios a la izquierda
+            String espacios = " ".repeat(espaciosIzquierda);
+            //definir el color aleatorio
+            String color = colores[random.nextInt(colores.length)];
+
+            // Imprime la fila centrada
+            System.out.println(espacios + color + fila.toString() + resetColor +  "\t\t Nivel: " + nivel);
+
+            try {
+                Thread.sleep(100); 
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+        System.out.println("\t Simulación completada.");
     }
 
     public void GR5_barraDeSonidoVectorial(){
+        System.out.println(" ");
+        Random random = new Random();
+        int alturaMaxima = 8;
+        int numeroColumnas = 10;  // Número de barras de sonido
+        char[][] matriz = new char[alturaMaxima][numeroColumnas];
+        
+        // Inicializar la matriz con espacios en blanco
+        for (int i = 0; i < alturaMaxima; i++) {
+            for (int j = 0; j < numeroColumnas; j++) {
+                matriz[i][j] = ' ';
+            }
+        }
 
+        // Generar altura aleatoria para cada columna y rellenar con "="
+        for (int col = 0; col < numeroColumnas; col++) {
+            int altura = random.nextInt(alturaMaxima + 1);
+            for (int fila = alturaMaxima - 1; fila >= alturaMaxima - altura; fila--) {
+                matriz[fila][col] = '=';
+            }
+        }
+
+        // Imprimir la matriz de abajo hacia arriba para mostrar las barras de sonido
+        for (int i = 0; i < alturaMaxima; i++) {
+            for (int j = 0; j < numeroColumnas; j++) {
+                System.out.print("      ");
+                System.out.print(matriz[i][j]);
+            }
+            System.out.println(); 
+        }
     }
 
     public void GR5_desplazarFiguraDeIzquierdaDerecha(){
+        System.out.println(" ");
+        char[][] figura = {
+            {' ',' ',' ','\\','|','|','|', '/'},
+            {' ',' ',' ','(','>',' ','<',')',' ', ' '},
+            {'o','o','O','-','(','_',')', '-', 'O', 'o','o'}
+        };
 
+        int anchoDeDesplazamiento = 60;
+        int anchoFigura = figura[0].length;
+
+        // Desplazar la figura hacia la derecha
+        for (int posicion = 0; posicion < anchoDeDesplazamiento - anchoFigura; posicion++) {
+            // Limpiar la pantalla
+            System.out.print(" \033[H\033[2J");
+            System.out.flush();
+
+            // Imprimir la figura con el desplazamiento hacia la derecha
+            for (char[] linea : figura) {
+                for (int i = 0; i < posicion; i++) {
+                    System.out.print(" ");  // Espacios a la izquierda para desplazar la figura
+                }
+                for (char c : linea) {
+                    System.out.print(c);
+                }
+                System.out.println();
+            }
+
+            // Espera para dar efecto de movimiento
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace(); // Manejo de la excepción
+            }
+        }
+
+        // Bucle para desplazar la figura de regreso hacia la izquierda
+        for (int posicion = anchoDeDesplazamiento - anchoFigura; posicion > 0; posicion--) {
+            // Limpiar la pantalla
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+
+            // Imprimir la figura con el desplazamiento hacia la izquierda
+            for (char[] linea : figura) {
+                for (int i = 0; i < posicion; i++) {
+                    System.out.print(" ");
+                }
+                for (char c : linea) {
+                    System.out.print(c);
+                }
+                System.out.println();
+            }
+
+            // Espera para dar efecto de movimiento
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace(); // Manejo de la excepción
+            }
+        }
     }
-
 }
     
             
