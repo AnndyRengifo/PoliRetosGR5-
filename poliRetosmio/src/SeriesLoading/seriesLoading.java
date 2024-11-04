@@ -291,7 +291,51 @@ public class seriesLoading {
     }
     
     public void GR5_cargaConCambiodePunta(){
+        System.out.println("\t\t Cargando...");
 
+        int width = 20;
+        char[][] barra =  new char[1][width];
+        char[] punteros = {'|','/','-','\\'};
+        int totalPasos = 100;
+        int delay = 100;
+
+        Arrays.fill(barra[0], ' ');
+
+        for(int paso = 0; paso <= totalPasos; paso++){
+            int llenarBarra = (paso * (width-1))/100;
+            
+            //llenar la barra
+            for(int i = 0; i < llenarBarra; i++ ){
+                barra[0][i] = '=';
+            }
+
+            //cambio de la punta
+            if(llenarBarra < width - 1){
+                barra[0][llenarBarra] = punteros[paso % punteros.length];
+            }
+
+            //mostrar % y barra
+            System.out.print("\r\t\t [");
+            for(char c: barra[0]){
+                System.out.print(c);
+            }
+            System.out.print("] " + paso + "%");
+
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                System.out.println("\t\t Carga interrumpida...");
+                Thread.currentThread().interrupt();
+                return;
+            }
+        }
+        System.out.print("\r\t\t [");
+        for(char c: barra[0]){
+            System.out.print(c);
+        }
+            System.out.print("] 100% \n");
+            System.out.println("\t Carga completada... ");
+            System.out.println(" ");
     }
 
     public void GR5_cargaConNombreyApeliido(){
