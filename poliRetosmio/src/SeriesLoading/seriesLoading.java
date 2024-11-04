@@ -5,50 +5,67 @@ import java.util.*;
 public class seriesLoading {
 
     public void generarLoading(Scanner sc) {
-        int opcion;
+        int opcion=0;
 
         do {
             System.out.println("\t |---------------------------------------------------|");
-            System.out.println("\t          Bienvenido a las Series Loading!");
+            System.out.println("\t          Bienvenido a las Series Loading!            ");
             System.out.println("\t |---------------------------------------------------|");
-            System.out.println("1. Carga rotacional");
-            System.out.println("2. Carga con caracter");
-            System.out.println("3. Carga de movimiento");
-            System.out.println("4. Carga con o0o");
-            System.out.println("5. Carga con cambio > -");
-            System.out.println("6. Carga con <=>");
-            System.out.println("7. Salir");
-            System.out.print("Ingrese una opción: ");
+            System.out.println("\t 1. Carga rotacional                                  ");
+            System.out.println("\t 2. Carga con caracter                                ");
+            System.out.println("\t 3. Carga de movimiento                               ");
+            System.out.println("\t 4. Carga con o0o                                     ");
+            System.out.println("\t 5. Carga con cambio > -                              ");
+            System.out.println("\t 6. Carga con <=>                                     ");
+            System.out.println("\t 7. Carga con cambio en la punta |/-|                 ");
+            System.out.println("\t 8. Carga con nombres y apellidos                     ");
+            System.out.println("\t 9. Carga con nombre completo                         ");
+            System.out.println("\t 10. Carga de un archivo                              ");
+            System.out.println("\t 11. Simular longitud de señal                        ");
+            System.out.println("\t 12. Barras de sonido vectorial                       ");
+            System.out.println("\t 13. Desplazar figura de izquierda a derecha          ");
+            System.out.println("\t 14. Salir");
+            System.out.print("\t Ingrese una opción: ");
 
-            while (!sc.hasNextInt()) {
-                System.out.println("Error, ingrese un número válido.");
-                sc.next(); 
+            try{
+                opcion = sc.nextInt();
+                sc.nextLine();
+            }catch(Exception e){
+                System.out.println(" ");
+                System.out.println("\t Opción no válida. Por favor, ingrese un número del 1 al 14.");
+                sc.next();
+                continue; 
             }
-            opcion = sc.nextInt();
-            sc.nextLine(); 
 
             switch (opcion) {
                 case 1 -> {
                     try {
-                        L01();
+                        GR5_indicadordeCarga();
                     } catch (InterruptedException e) {
-                        System.out.println("La animación de carga fue interrumpida.");
+                        System.out.println("\t La animación de carga fue interrumpida.");
                         Thread.currentThread().interrupt();
                     }
                 }
-                case 2 -> L02(sc);
-                case 3 -> L03(sc);
-                case 4 -> L04();
-                case 5 -> L05();
-                case 6 -> L06();
-                case 7 -> System.out.println("Saliendo del programa Arrays");
-                default -> System.out.println("Opción no válida");
+                case 2 -> GR5_simularCarga(sc);
+                case 3 -> GR5_desplzarIzquierdaDerecha(sc);
+                case 4 -> GR5_simularWaiting();
+                case 5 -> GR5_barraAvanza();
+                case 6 -> GR5_desplzarBarraIzquierdaDerecha();
+                case 7 -> GR5_cargaConCambiodePunta();
+                case 8 -> GR5_cargaConNombreyApeliido();
+                case 9 -> GR5_cargaConNombreCompleto();
+                case 10 -> GR5_cargaDeUnArchivo();
+                case 11 -> GR5_simularLongitudDeSenial();
+                case 12 -> GR5_barraDeSonidoVectorial();
+                case 13 -> GR5_desplazarFiguraDeIzquierdaDerecha();
+                case 14 -> System.out.println("\t Saliendo del programa Arrays");
+                default -> System.out.println("\t Opción no válida");
             }
 
-        } while (opcion != 7);
+        } while (opcion != 14);
     }
 
-    public void L01() throws InterruptedException {
+    public void GR5_indicadordeCarga() throws InterruptedException {
         char[] caracter = {'|', '/', '-', '\\'};
         int totalDuracion = 3000;  // Duración total en milisegundos
         int intervalo = totalDuracion / 100;  // Intervalo de actualización en milisegundos
@@ -61,9 +78,8 @@ public class seriesLoading {
         System.out.println("\r| 100%");
     }
 
-
-    public void L02(Scanner sc) {
-        System.out.print("Ingrese un caracter: ");
+    public void GR5_simularCarga(Scanner sc) {
+        System.out.print("\t Ingrese un caracter: ");
         char loadingChar = sc.next().charAt(0);
 
         int barra = 20;
@@ -86,7 +102,7 @@ public class seriesLoading {
             try {
                 Thread.sleep(delay);
             } catch (InterruptedException e) {
-                System.out.println("La carga fue interrumpida!!");
+                System.out.println("\t La carga fue interrumpida!!");
                 Thread.currentThread().interrupt(); 
                 return;
             }
@@ -95,8 +111,8 @@ public class seriesLoading {
         System.out.println("\nCarga completa! :)");
     }
 
-    public void L03(Scanner sc) {
-        System.out.print("Ingrese un caracter: ");
+    public void GR5_desplzarIzquierdaDerecha(Scanner sc) {
+        System.out.print("\t Ingrese un caracter: ");
         char movingChar = sc.next().charAt(0);
         int barra = 20;
         int delay = 50;
@@ -132,17 +148,17 @@ public class seriesLoading {
             try {
                 Thread.sleep(delay);
             } catch (InterruptedException e) {
-                System.out.println("La carga fue interrumpida!!.");
+                System.out.println("\t La carga fue interrumpida!!.");
                 Thread.currentThread().interrupt(); 
                 return;
             }
         }
 
         System.out.print("\r" + bar.toString() + " 100%\n");
-        System.out.println("Carga completa! :)");
+        System.out.println("\t Carga completa! :)");
     }
     
-    public void L04() {
+    public void GR5_simularWaiting() {
         String char1 = "o"; 
         String char2 = "0";
         int delay = 250;
@@ -174,17 +190,17 @@ public class seriesLoading {
             try {
                 Thread.sleep(delay);
             } catch (InterruptedException e) {
-                System.out.println("La carga fue interrumpida.");
+                System.out.println("\t La carga fue interrumpida.");
                 Thread.currentThread().interrupt(); 
                 return;
             }
         }
 
         System.out.print("\r" + "ooo" + " 100%\n");
-        System.out.println("Carga completa! :)");
+        System.out.println("\t Carga completa! :)");
     }
     
-    public void L05(){
+    public void GR5_barraAvanza(){
         char[] barra = new char[20];
         int totalSteps =  100;
         int delay = 100;
@@ -212,17 +228,17 @@ public class seriesLoading {
             try {
                 Thread.sleep(delay);
             } catch (InterruptedException e) {
-                System.out.println("Carga Interrumpida!!");
+                System.out.println("\t Carga Interrumpida!!");
                 Thread.currentThread().interrupt();
                 return;
             }
         }
 
         System.out.print("\r[" + new String(barra) + "] 100%\n");
-        System.out.println("Carga completa! :)");
+        System.out.println("\t Carga completa! :)");
     }
     
-    public void L06() {
+    public void GR5_desplzarBarraIzquierdaDerecha() {
         
         String movingChar = "<=>"; 
         int barra = 20;
@@ -264,17 +280,43 @@ public class seriesLoading {
             try {
                 Thread.sleep(delay);
             } catch (InterruptedException e) {
-                System.out.println("La carga fue interrumpida!!.");
+                System.out.println("\t La carga fue interrumpida!!.");
                 Thread.currentThread().interrupt();
                 return;
             }
         }
 
         System.out.print("\r[" + bar.toString() + " 100%\n");
-        System.out.println("Carga completa! :)");
+        System.out.println("\t Carga completa! :)");
     }
     
-    
+    public void GR5_cargaConCambiodePunta(){
+
+    }
+
+    public void GR5_cargaConNombreyApeliido(){
+
+    }
+
+    public void GR5_cargaConNombreCompleto(){
+
+    }
+
+    public void GR5_cargaDeUnArchivo(){
+
+    }
+
+    public void GR5_simularLongitudDeSenial(){
+
+    }
+
+    public void GR5_barraDeSonidoVectorial(){
+
+    }
+
+    public void GR5_desplazarFiguraDeIzquierdaDerecha(){
+
+    }
 
 }
     
