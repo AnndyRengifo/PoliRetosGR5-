@@ -1,7 +1,7 @@
 package SeriesLoading;
 
 import java.util.*;
-import java.util.random.*;
+
 
 public class seriesLoading {
 
@@ -66,19 +66,22 @@ public class seriesLoading {
     }
 
     public void GR5_indicadordeCarga() throws InterruptedException {
+        System.out.println(" \n");
         char[] caracter = {'|', '/', '-', '\\'};
         int totalDuracion = 3000;  // Duración total en milisegundos
         int intervalo = totalDuracion / 100;  // Intervalo de actualización en milisegundos
 
         for (int i = 0; i <= 100; i++) {
             char simbolo = caracter[i % caracter.length];
-            System.out.print("\r" + simbolo + " " + i + "%");
+            System.out.print("\r\t " + simbolo + " " + i + "%");
             Thread.sleep(intervalo);
         }
-        System.out.println("\r| 100%");
+        System.out.println("\r\t | 100%");
+        System.out.println(" ");
     }
 
     public void GR5_simularCarga(Scanner sc) {
+        System.out.println("\n");
         System.out.print("\t Ingrese un caracter: ");
         char loadingChar = sc.next().charAt(0);
 
@@ -87,7 +90,7 @@ public class seriesLoading {
 
         for (int i = 0; i <= 100; i += 5) {
             int filledLength = (i * barra) / 100;
-            StringBuilder bar = new StringBuilder("[");
+            StringBuilder bar = new StringBuilder("\t [");
 
             for (int j = 0; j < filledLength; j++) {
                 bar.append(loadingChar);
@@ -108,10 +111,13 @@ public class seriesLoading {
             }
         }
 
-        System.out.println("\nCarga completa! :)");
+        System.out.println(" ");
+        System.out.println("\t Carga completa! :)");
+        System.out.println(" ");
     }
 
     public void GR5_desplzarIzquierdaDerecha(Scanner sc) {
+        System.out.println("\n");
         System.out.print("\t Ingrese un caracter: ");
         char movingChar = sc.next().charAt(0);
         int barra = 20;
@@ -142,7 +148,7 @@ public class seriesLoading {
             bar.setCharAt(currentPosition + 1, movingChar); 
     
             int percentage = (step * 100) / totalSteps;
-            System.out.print("\r" + bar.toString() + " " + percentage + "%");
+            System.out.print("\r\t" + bar.toString() + " " + percentage + "%");
     
 
             try {
@@ -156,9 +162,11 @@ public class seriesLoading {
 
         System.out.print("\r" + bar.toString() + " 100%\n");
         System.out.println("\t Carga completa! :)");
+        System.out.println(" ");
     }
     
     public void GR5_simularWaiting() {
+        System.out.println("\n");
         String char1 = "o"; 
         String char2 = "0";
         int delay = 250;
@@ -185,7 +193,7 @@ public class seriesLoading {
                 }
             }
     
-            System.out.print("\r" + display.toString() + " " + step + "%");
+            System.out.print("\r\t" + display.toString() + " " + step + "%");
 
             try {
                 Thread.sleep(delay);
@@ -196,11 +204,13 @@ public class seriesLoading {
             }
         }
 
-        System.out.print("\r" + "ooo" + " 100%\n");
+        System.out.print("\r\t" + "ooo" + " 100%\n");
         System.out.println("\t Carga completa! :)");
+        System.out.println(" ");
     }
     
     public void GR5_barraAvanza(){
+        System.out.println("\n");
         char[] barra = new char[20];
         int totalSteps =  100;
         int delay = 100;
@@ -223,7 +233,7 @@ public class seriesLoading {
                 barra[i] = ' ';
             }
 
-            System.out.print("\r[" + new String(barra) + "] " + step + "%");
+            System.out.print("\r\t [" + new String(barra) + "] " + step + "%");
 
             try {
                 Thread.sleep(delay);
@@ -234,12 +244,13 @@ public class seriesLoading {
             }
         }
 
-        System.out.print("\r[" + new String(barra) + "] 100%\n");
+        System.out.print("\r\t [" + new String(barra) + "] 100%\n");
         System.out.println("\t Carga completa! :)");
+        System.out.println(" ");
     }
     
     public void GR5_desplzarBarraIzquierdaDerecha() {
-        
+        System.out.println("\n");
         String movingChar = "<=>"; 
         int barra = 20;
         int delay = 50;
@@ -275,7 +286,7 @@ public class seriesLoading {
             }
     
             int percentage = (step * 100) / totalSteps;
-            System.out.print("\r" + bar.toString() + " " + percentage + "%");
+            System.out.print("\r\t" + bar.toString() + " " + percentage + "%");
     
             try {
                 Thread.sleep(delay);
@@ -286,13 +297,13 @@ public class seriesLoading {
             }
         }
 
-        System.out.print("\r[" + bar.toString() + " 100%\n");
+        System.out.print("\r\t [" + bar.toString() + " 100%\n");
         System.out.println("\t Carga completa! :)");
+        System.out.println(" ");
     }
     
     public void GR5_cargaConCambiodePunta(){
-        System.out.println("\t\t Cargando...");
-
+        System.out.println("\n");
         int width = 20;
         char[][] barra =  new char[1][width];
         char[] punteros = {'|','/','-','\\'};
