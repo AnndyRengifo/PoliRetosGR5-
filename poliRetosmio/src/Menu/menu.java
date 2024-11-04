@@ -1,13 +1,11 @@
 package Menu;
+import SeriesLoading.seriesLoading;
+import cadenaCaracteres.CadenaDeCaracteres;
 import java.util.Scanner;
-
-import GrafosyAutomatas.grafosYautomatas;
-import SeriesRecursion.seriesRecursion;
+import seriesArrays.seriesArrays;
 import seriesCaracteres.SeriesCaracteres;
 import seriesFiguras.SeriesFiguras;
 import seriesNumericas.SeriesNumericas;
-import cadenaCaracteres.CadenaDeCaracteres;
-
 
 public class menu {
 
@@ -31,9 +29,7 @@ public class menu {
         
         do {
             System.out.println("");
-            System.out.println("\t |---------------------------------------------------|"); 
-            System.out.println("\t              BIENVENIDO A LOS POLIRETOS"              );
-            System.out.println("\t |---------------------------------------------------|"); 
+            System.out.println("\t BIENVENIDO A LOS POLIRETOS");
             System.out.println("\t  1. Series numericas");
             System.out.println("\t  2. Serie de caracteres");
             System.out.println("\t  3. Serie de figuras");
@@ -96,3 +92,5 @@ public class menu {
         sc.close();
     }
 }
+
+  
