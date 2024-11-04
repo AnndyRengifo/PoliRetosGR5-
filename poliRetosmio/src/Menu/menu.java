@@ -23,7 +23,7 @@ public class menu {
         System.out.println("\t\t |---------------------------------------------------|"); 
         System.out.println(" ");
     }
-
+    
     
     public void mostrarMenu() {
         Scanner sc = new Scanner(System.in);
@@ -31,7 +31,9 @@ public class menu {
         
         do {
             System.out.println("");
-            System.out.println("\t BIENVENIDO A LOS POLIRETOS");
+            System.out.println("\t |---------------------------------------------------|"); 
+            System.out.println("\t              BIENVENIDO A LOS POLIRETOS"              );
+            System.out.println("\t |---------------------------------------------------|"); 
             System.out.println("\t  1. Series numericas");
             System.out.println("\t  2. Serie de caracteres");
             System.out.println("\t  3. Serie de figuras");
