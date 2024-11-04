@@ -219,7 +219,7 @@ public class grafosYautomatas {
                     } else if (decimal == '.') {
                         estado = 2;
                     } else if (decimal == 'e') {
-                        estado = 3;
+                        estado = 2;
                     }else{
                         estado = e;
                     }
@@ -227,8 +227,6 @@ public class grafosYautomatas {
                 
                 case 2:
                     if (Character.isDigit(decimal)) {
-                            estado = 2;
-                        } else if (decimal == 'e') {
                             estado = 3;
                         }else{
                             estado = e;
@@ -236,24 +234,17 @@ public class grafosYautomatas {
                 break;
 
                 case 3:
-                if (Character.isDigit(decimal)) {
-                    estado = 4;
-                } else {
-                    estado = e;
-                }
-                break;
-                
-                case 4:
-                if (Character.isDigit(decimal)) {
-                        estado = 4;
-                    } else {
+                    if (Character.isDigit(decimal)) {
+                        estado = 3;
+                    }else{
                         estado = e;
                     }
                 break;
+
                 default: estado = e; break;
             }
         }
-        if ( estado == 2 || estado == 4 ) {
+        if ( estado == 3 ) {
             System.out.println("\t\t |--> Es un numero decimal ");
         }else{
             System.out.println("\t\t |--> No es un numero decimal ");
@@ -278,7 +269,7 @@ public class grafosYautomatas {
                         estado = 1;
                     }else if(Character.isDigit(variable)){
                         estado = 2;
-                    }else if (variable == '_') {
+                    }else if (variable == '_' || variable == '$') {
                         estado = 1;
                     } else if (variable == ';') {
                         estado = 3;
@@ -294,7 +285,7 @@ public class grafosYautomatas {
                         estado = 2;
                     }else if (variable == '_') {
                         estado = 1;
-                    } else if (variable == ';') {
+                    }if (variable == ';') {
                         estado = 3;
                     }else{
                         estado = e;
