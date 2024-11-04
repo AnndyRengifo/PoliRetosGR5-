@@ -1,7 +1,6 @@
 package GrafosyAutomatas;
 import java.util.*;
 
-import seriesArrays.seriesArrays;
 
 public class grafosYautomatas {
 

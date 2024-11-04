@@ -12,6 +12,21 @@ import seriesNumericas.SeriesNumericas;
 
 public class menu {
 
+    public void mostrarIntegrantes(){
+        System.out.println();
+        System.out.println("\t\t |---------------------------------------------------|"); 
+        System.out.println("\t\t |                     GRUPO N° 5                    |"); 
+        System.out.println("\t\t |---------------------------------------------------|"); 
+        System.out.println("\t\t |                   RENGIFO ANNDY                   |"); 
+        System.out.println("\t\t |                   SANCHEZ ANDY                    |"); 
+        System.out.println("\t\t |                   VALLEJO ALEXIS                  |"); 
+        System.out.println("\t\t |                   VELEZ JOEL                      |"); 
+        System.out.println("\t\t |---------------------------------------------------|"); 
+        System.out.println(" ");
+    }
+
+
+
     public void mostrarMenu() {
         try (Scanner sc = new Scanner(System.in)) { 
             int opcion = 0;

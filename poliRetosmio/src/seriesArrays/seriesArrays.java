@@ -9,16 +9,16 @@ public class seriesArrays {
             System.out.println("\t |---------------------------------------------------|"); 
             System.out.println("\t          Bienvenido a los Arrays!       ");
             System.out.println("\t |---------------------------------------------------|");
-            System.out.println("1. Porcentaje con nombres");
-            System.out.println("2. Iniciales con Caracteres");
-            System.out.println("3. Plano de Coordenadas con Nombre");
-            System.out.println("4. X con nombre y apellido");
-            System.out.println("5. Matriz cuadrada Random");
-            System.out.println("6. Salir");
-            System.out.print("Ingrese una opción: ");
+            System.out.println("\t 1. Porcentaje con nombres");
+            System.out.println("\t 2. Iniciales con Caracteres");
+            System.out.println("\t 3. Plano de Coordenadas con Nombre");
+            System.out.println("\t 4. X con nombre y apellido");
+            System.out.println("\t 5. Matriz cuadrada Random");
+            System.out.println("\t 6. Salir");
+            System.out.print("\t Ingrese una opción: ");
 
             while(!sc.hasNext()){
-                System.out.println("Error, ingrese un número");
+                System.out.println("\t Error, ingrese un número");
                 sc.next();
             }
             opcion = sc.nextInt();
@@ -30,24 +30,24 @@ public class seriesArrays {
                 case 3 -> A03(sc);
                 case 4 -> A04(sc);
                 case 5 -> A05(sc);
-                case 6 -> System.out.println("Saliendo del programa Arrays");
-                default -> System.out.println("Opción no válida");
+                case 6 -> System.out.println("\t Saliendo del programa Arrays");
+                default -> System.out.println("\t Opción no válida");
             }
             
         } while (opcion != 6);
     }
 
     public void A01(Scanner sc){
-        System.out.print("Ingrese su nombre completo: ");
+        System.out.print("\t Ingrese su nombre completo: ");
         String nombreCompleto = sc.nextLine();
         String[] palabras = nombreCompleto.split(" ");
         int[] porcentajes = new int[palabras.length];
 
 
-        System.out.print("Ingrese el porcentaje de carga para cada  palabra: ");
+        System.out.print("\t Ingrese el porcentaje de carga para cada  palabra: ");
         for(int i = 0; i < palabras.length; i++){
             while(!sc.hasNextInt()){
-                System.out.println("Error, ingrese un número");
+                System.out.println("\t Error, ingrese un número");
                 sc.next();
             }
             porcentajes[i] = sc.nextInt();
@@ -79,13 +79,13 @@ public class seriesArrays {
     }
 
     public void A02(Scanner sc){
-        System.out.print("Ingrese su nombre completo: ");
+        System.out.print("\t Ingrese su nombre completo: ");
         String nombreCompleto = sc.nextLine();
         
-        System.out.print("Ingrese el tamaño de la matriz: ");
+        System.out.print("\t Ingrese el tamaño de la matriz: ");
         int tamanio = sc.nextInt();
         
-        System.out.print("Ingrese el carácter para construir las iniciales: ");
+        System.out.print("\t Ingrese el carácter para construir las iniciales: ");
         char caracter = sc.next().charAt(0);
 
         System.out.println("\nIniciales en Matriz:");
@@ -111,7 +111,6 @@ public class seriesArrays {
             }
         }
     
-
         for (int fila = 0; fila < tamanio; fila++) {
             for (StringBuilder letra : letras) {
                 for (int col = 0; col < tamanio; col++) {
@@ -156,7 +155,7 @@ public class seriesArrays {
     }
 
     public void A03(Scanner sc){ //arreglar
-        System.out.print("Ingrese su nombre: ");
+        System.out.print("\t Ingrese su nombre: ");
         String nombre = sc.nextLine();
 
         int maxX = 5;
@@ -195,7 +194,7 @@ public class seriesArrays {
     }
 
     public void A04(Scanner sc) {
-        System.out.print("Ingrese su nombre y apellido: ");
+        System.out.print("\t Ingrese su nombre y apellido: ");
         String input = sc.nextLine();
         
         String[] partes = input.split(" ");
@@ -229,7 +228,7 @@ public class seriesArrays {
     }
 
     public void A05(Scanner sc) {
-        System.out.print("Ingrese su nombre completo: ");
+        System.out.print("\t Ingrese su nombre completo: ");
         String input = sc.nextLine();
         String[] nombres = input.trim().split(" ");
 
@@ -327,7 +326,7 @@ public class seriesArrays {
                             placed = true;
                         }
                     }
-                    default -> throw new IllegalArgumentException("Dirección no válida");
+                    default -> throw new IllegalArgumentException("\t Dirección no válida");
                 }                
         
                 imprimirMatriz(matriz);
