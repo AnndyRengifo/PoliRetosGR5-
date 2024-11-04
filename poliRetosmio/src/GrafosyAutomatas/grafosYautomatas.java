@@ -8,7 +8,6 @@ public class grafosYautomatas {
     public void GR5_generarGrafosyAutomatas(Scanner sc){
         int opcion1 = 0;
         do{
-
             System.out.println("\n");
             System.out.println("\t |---------------------------------------------------|"); 
             System.out.println("\t                  Bienvenido a Automatas              ");
@@ -303,15 +302,15 @@ public class grafosYautomatas {
     
     public void GR5_CompiladordeLenguaje(String entrada6){
         
-        int estado = 0; // Estado inicial
-        StringBuilder palabra = new StringBuilder(); // Para construir la palabra actual
+        int estado = 0; 
+        StringBuilder palabra = new StringBuilder(); 
     
         for (char c : entrada6.toCharArray()) {
             switch (estado) {
-                case 0: // Estado inicial
+                case 0: 
                     if (Character.isLetter(c)) {
-                        palabra.append(c); // Comenzamos a construir una palabra
-                        estado = 1; // Transición al estado 1
+                        palabra.append(c); 
+                        estado = 1; 
                     } else if (c == ' ') {
                         // Ignorar espacios
                     } else {
@@ -320,15 +319,14 @@ public class grafosYautomatas {
                     }
                     break;
     
-                case 1: // Construyendo la palabra
+                case 1: 
                     if (Character.isLetter(c) || Character.isDigit(c)) {
-                        palabra.append(c); // Continuar construyendo la palabra
+                        palabra.append(c); 
                     } else if (c == '(') {
-                        // Verificamos si la palabra es válida antes de aceptar el paréntesis
                         if (esPalabraClaveValida(palabra.toString())) {
                             System.out.println("\t\t |--> Palabra clave aceptada: " + palabra + " (con paréntesis)");
-                            palabra.setLength(0); // Reiniciar la palabra
-                            estado = 0; // Volver al estado inicial
+                            palabra.setLength(0); 
+                            estado = 0; 
                         } else {
                             System.out.println("\t\t |--> Error: Palabra clave no válida: " + palabra);
                             return;
@@ -344,8 +342,6 @@ public class grafosYautomatas {
                     return;
             }
         }
-    
-        // Verificar si hay una palabra pendiente al final
         if (palabra.length() > 0) {
             if (esPalabraClaveValida(palabra.toString())) {
                 System.out.println("\t\t |--> Palabra clave aceptada: " + palabra + " (sin paréntesis)");
@@ -381,16 +377,16 @@ public class grafosYautomatas {
                 case 0:
                     if (Character.isUpperCase(clave)) {
                         tieneMayuscula = true;
-                        estado = 1; // Transición al estado 1
+                        estado = 1; 
                     } else if (Character.isLowerCase(clave)) {
                         tieneMinuscula = true;
-                        estado = 1; // Transición al estado 1
+                        estado = 1; 
                     } else if (Character.isDigit(clave)) {
                         tieneNumero = true;
-                        estado = 1; // Transición al estado 1
+                        estado = 1; 
                     } else if (!Character.isLetterOrDigit(clave)) {
                         tieneCaracterEspecial = true;
-                        estado = 1; // Transición al estado 1
+                        estado = 1; 
                     }
                 break;
 
@@ -414,6 +410,5 @@ public class grafosYautomatas {
         } else {
             System.out.println("\t\t |--> No es una clave valida");
         }
-
     }
 }

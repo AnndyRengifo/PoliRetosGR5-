@@ -110,7 +110,6 @@ public class seriesLoading {
                 return;
             }
         }
-
         System.out.println(" ");
         System.out.println("\t Carga completa! :)");
         System.out.println(" ");
@@ -192,9 +191,7 @@ public class seriesLoading {
                     movingRight = true; 
                 }
             }
-    
             System.out.print("\r\t" + display.toString() + " " + step + "%");
-
             try {
                 Thread.sleep(delay);
             } catch (InterruptedException e) {
@@ -243,7 +240,6 @@ public class seriesLoading {
                 return;
             }
         }
-
         System.out.print("\r\t [" + new String(barra) + "] 100%\n");
         System.out.println("\t Carga completa! :)");
         System.out.println(" ");
@@ -296,7 +292,6 @@ public class seriesLoading {
                 return;
             }
         }
-
         System.out.print("\r\t [" + bar.toString() + " 100%\n");
         System.out.println("\t Carga completa! :)");
         System.out.println(" ");
@@ -626,5 +621,3 @@ public class seriesLoading {
         }
     }
 }
-    
-            
