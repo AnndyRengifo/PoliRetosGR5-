@@ -1,6 +1,7 @@
 package SeriesLoading;
 
 import java.util.*;
+import java.util.random.*;
 
 public class seriesLoading {
 
@@ -52,16 +53,15 @@ public class seriesLoading {
                 case 5 -> GR5_barraAvanza();
                 case 6 -> GR5_desplzarBarraIzquierdaDerecha();
                 case 7 -> GR5_cargaConCambiodePunta();
-                case 8 -> GR5_cargaConNombreyApeliido();
-                case 9 -> GR5_cargaConNombreCompleto();
+                case 8 ->  GR5_cargaConNombreyApeliido(sc);
+                case 9 -> GR5_cargaConNombreCompleto(sc);
                 case 10 -> GR5_cargaDeUnArchivo();
                 case 11 -> GR5_simularLongitudDeSenial();
                 case 12 -> GR5_barraDeSonidoVectorial();
                 case 13 -> GR5_desplazarFiguraDeIzquierdaDerecha();
-                case 14 -> System.out.println("\t Saliendo del programa Arrays");
+                case 14 -> System.out.println("\t Saliendo del programa de Loading... ");
                 default -> System.out.println("\t Opción no válida");
             }
-
         } while (opcion != 14);
     }
 
@@ -338,17 +338,131 @@ public class seriesLoading {
             System.out.println(" ");
     }
 
-    public void GR5_cargaConNombreyApeliido(){
+    public void GR5_cargaConNombreyApeliido(Scanner sc){
+        System.out.println("\n");
+        System.out.print("\t  Ingrese sus nombres y apellidos: ");  
+        String entrada1 = sc.nextLine();
+        
 
+        int longitud = entrada1.length(); 
+        char[][] nombreArray = new char[1][longitud];
+        char[] nombreChar = entrada1.toCharArray();
+        int totalPasos = 100;
+        int delay  = 20;
+
+        Arrays.fill(nombreArray[0], ' ');
+
+        for (int paso = 0; paso <= totalPasos; paso++) {
+            int mostrarCaracter = (paso * longitud)/100;
+
+            for (int i = 0; i < mostrarCaracter; i++) {
+                nombreArray[0][i] = nombreChar[i];
+            }
+
+            System.out.print("\r\t\t [");
+            for (char c : nombreArray[0]) {
+                System.out.print(c);
+            }
+            System.out.print("] " + paso + "%");
+
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                System.out.println("\n\t Carga interrumpida...");
+                Thread.currentThread().interrupt();
+                return;
+            }
+        }
+        System.out.print("\r\t\t [");
+        for (char c : nombreArray[0]) {
+            System.out.print(c);
+        }
+        System.out.print("] 100% \n");
+        System.out.println("\t\t Carga completada...");
+        System.out.println(" ");
     }
 
-    public void GR5_cargaConNombreCompleto(){
+    public void GR5_cargaConNombreCompleto(Scanner sc){
+        System.out.println("\n");
+        System.out.print("\t  Ingrese su nombre: ");  
+        String entrada1 = sc.nextLine();
+        
 
+        int longitud = entrada1.length(); 
+        char[][] nombreArray = new char[1][longitud];
+        char[] nombreChar = entrada1.toCharArray();
+        int totalPasos = 100;
+        int delay  = 100;
+
+        Arrays.fill(nombreArray[0], ' ');
+
+        for (int paso = 0; paso <= totalPasos; paso++) {
+            int mostrarCaracter = (paso * longitud)/100;
+
+            for (int i = 0; i < mostrarCaracter; i++) {
+                nombreArray[0][i] = nombreChar[i];
+            }
+
+            System.out.print("\r\t\t [");
+            for (char c : nombreArray[0]) {
+                System.out.print(c);
+            }
+            System.out.print("] " + paso + "%");
+
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                System.out.println("\n\t Carga interrumpida...");
+                Thread.currentThread().interrupt();
+                return;
+            }
+        }
+        System.out.print("\r\t\t [");
+        for (char c : nombreArray[0]) {
+            System.out.print(c);
+        }
+        System.out.print("] 100% \n");
+        System.out.println("\t\t Carga completada...");
+        System.out.println(" ");
     }
 
     public void GR5_cargaDeUnArchivo(){
+        Random random = new Random();
+        int fileSize = 10 + random.nextInt(91);
+        System.out.println(" ");
+        System.out.println("\t Downloading ArchivoYarl-win_amd64.whl (" + fileSize + " kB)");
 
+        int totalPasos = 100; 
+        int delay = 100; 
+        char[] barraProgresar = new char[totalPasos]; 
+        int barraLlena = 0;
+
+        for (int i = 0; i < barraProgresar.length; i++) {
+            barraProgresar[i] = ' ';
+        }
+
+        for (int step = 0; step <= totalPasos; step++) {
+            barraLlena = (step * fileSize) / totalPasos;
+
+            for (int i = 0; i < barraLlena; i++) {
+                barraProgresar[i] = '═'; 
+            }
+
+            System.out.print("\r\t " + "\u001B[33m" + "[" + new String(barraProgresar) + "] " + String.format("%.1f", (step * (double)fileSize / totalPasos)) + " / " + fileSize + " kB" + "\u001B[0m");
+
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                System.out.println("\n\t Carga interrumpida.");
+                return;
+            }
+        }
+        System.out.print("\r\t" + "\u001B[33m" + "[" + new String(barraProgresar) + "] " + fileSize + " / " + fileSize + " kB" + "\u001B[0m\n");
+        System.out.println("\t\t Carga completada!");
+        System.out.println(" ");
     }
+        
+    
 
     public void GR5_simularLongitudDeSenial(){
 
