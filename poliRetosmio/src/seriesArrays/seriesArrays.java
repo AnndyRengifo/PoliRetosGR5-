@@ -158,39 +158,26 @@ public class seriesArrays {
         System.out.print("\t Ingrese su nombre: ");
         String nombre = sc.nextLine();
 
-        int maxX = 5;
-        int maxY = nombre.length();
-        char[][] plano = new char[maxY + 1][maxX + 1];
+        for (int imprimir = 0; imprimir < nombre.length(); imprimir++) {
 
-        for (char[] fila : plano) {
-            for (int j = 0; j < fila.length; j++) {
-                fila[j] = ' ';
+            boolean segundoBucleEjecutado = false;
+
+            for (int m = nombre.length() - imprimir; m >= 0; m--) {
+                System.out.printf("%2d |", m);
+
+                for (int espacioRec = nombre.length() - 1; espacioRec > imprimir; espacioRec--) {
+                    System.out.print(" ");
+                }
+                
+                System.out.println(nombre.charAt(nombre.length() - imprimir - 1));
+
+                if (!segundoBucleEjecutado) {
+                    segundoBucleEjecutado = true;
+                    break;
+                }
             }
         }
-        
-        for(int x = 0; x <= maxX; x++){
-            int y = 2 * x;
-            if(y < maxY){
-                int charIndex = x % nombre.length();
-                plano[maxY - 1 - y][x] = nombre.charAt(charIndex);
-            }
-        }
-
-        for(int i = 0; i <= maxY; i++){
-            System.out.printf("%2d |", maxY - i);
-            for(int j = 0; j < maxX; j++){
-                System.out.print(plano[i][j]);
-            }
-            System.out.println();
-        }
-
-        System.out.print("   |");
-        for(int j = 0; j <= maxX; j++){
-            System.out.print("__");
-        }
-        System.out.println("_");
-        System.out.print("   |");
-        System.out.println();
+        System.out.printf(" 0 |%s%n", "_".repeat(nombre.length()));
     }
 
     public void A04(Scanner sc) {

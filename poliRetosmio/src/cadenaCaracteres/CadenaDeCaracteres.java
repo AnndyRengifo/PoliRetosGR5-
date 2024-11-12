@@ -210,41 +210,29 @@ public class CadenaDeCaracteres {
     }
 
     public void C08(){ //consultar como funciona!! :C
-        String[][] anagramas = {
-            {"delira", "lidera"},
-            {"ballena", "llenaba"},
-            {"alondra", "ladrona"},
-            {"espania", "apanies"},
-            {"enrique", "quieren"}
-        };
-        String[] palabraElegida = anagramas[0];
-        String palabra = palabraElegida[0];
-        String respuestaCorrecta = palabraElegida[1];
-
-        Scanner sc = new Scanner(System.in);
-        int intentos = 0;
-        boolean acertado = false;
-
-        System.out.println("\t Palabra: " + palabra);
-        System.out.println("\t Ingrese un anagrama de la palabra: ");
-
-        while(intentos < 3 && !acertado){
-            String intento = sc.nextLine();
-
-            if(intento.equalsIgnoreCase(respuestaCorrecta)){
-                acertado = true;
-                System.out.println("\t Acertaste! el anagrama es: " + respuestaCorrecta);
-            }else{
-                intentos++;
-                if(intentos < 3){
-                    System.out.println("\t Intentos restantes: " + (3 - intentos));
-                }
+        Scanner reader = new Scanner(System.in);
+        String[] conjunto = { "delira", "lidera", "ballena", "llenaba", "alondra", "ladrona", "España", "apañes",
+                "Enrique", "quieren" };
+        int indicePalabra = (int) (Math.random() * 10);
+        String anagrama, anagramaCorrecto;
+        System.out
+                .println("Juguemos a los anagramas, tendras 3 intentos. Esta es tu palabra: " + conjunto[indicePalabra]);
+        if (indicePalabra % 2 == 0) {
+            anagramaCorrecto = conjunto[indicePalabra + 1];
+        } else {
+            anagramaCorrecto = conjunto[indicePalabra - 1];
+        }
+        for (int i = 0; i < 3; i++) {
+            System.out.print("Ingresa tu anagrama: ");
+            anagrama = reader.nextLine();
+            if (anagramaCorrecto.equalsIgnoreCase(anagrama)) {
+                System.out.println("Bien hecho, tu anagrama es correcto");
+                break;
+            } else {
+                System.out.println("Lo siento, no esta bien");
             }
+            System.out.println((i==2&&!anagramaCorrecto.equalsIgnoreCase(anagrama))?"Se te acabaron las opportunidades, el anagrama era: "+anagramaCorrecto:" ");
         }
-        if(!acertado){
-            System.out.println("\t Perdiste! la respuesta correcta era: "+ respuestaCorrecta);
-        }
-        sc.close();
     }
 
     public void C09(Scanner sc, String frase){
