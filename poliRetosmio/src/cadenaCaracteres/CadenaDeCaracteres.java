@@ -3,7 +3,6 @@ import java.util.*;
 
 public class CadenaDeCaracteres {
 
-
     public void generarCaracteres(Scanner sc) {
 
         String opcion;
@@ -259,15 +258,9 @@ public class CadenaDeCaracteres {
         return resultado.toString();
     }
 
-
-    // Metodo para verificar si un caracter es una vocal
-    private boolean isVowel(char c) {
+    private boolean isVowel(char c) {     // Metodo para verificar si un caracter es una vocal
         return "aeiouAEIOU".indexOf(c) != -1;
     }
-
-    
-    
-    
 
 }
 

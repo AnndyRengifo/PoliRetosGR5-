@@ -1,11 +1,9 @@
 package seriesCaracteres;
-
-import java.util.Scanner;
+import java.util.*;
 
 public class SeriesCaracteres {
 
     public void generarSeries(Scanner sc){
-        
         System.out.print("\t Ingrese el número de series que desea generar: ");
         int n = sc.nextInt();
 
@@ -120,7 +118,6 @@ public class SeriesCaracteres {
         }
         System.out.println();
     }
-
 
 
 }

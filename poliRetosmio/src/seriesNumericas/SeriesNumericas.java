@@ -1,13 +1,12 @@
 package seriesNumericas;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class SeriesNumericas {
 
     public void generarSeries(Scanner sc) {
         System.out.print("Ingrese el número de términos de la serie: ");
         int n = sc.nextInt();
-
         System.out.println(" Serie de Fibonacci: ");
         g5_crearserieFibonacci(n);
         System.out.println(" Serie Alternada: ");
@@ -54,7 +53,6 @@ public class SeriesNumericas {
 
     public void g5_crearserieFraccionFibonacciImpares(int numTerminos){
         int a = 0, b = 1, temp;
-    
         for(int i = 0; i < numTerminos; i++){
             if(i % 2 == 0){
                 System.out.print(" " + a + "/" + (2 * i + 1) + " ");
@@ -131,7 +129,7 @@ public class SeriesNumericas {
         }
         System.out.println();
     }
-
+    
     public void g5_crearseriePotenciasDeTres(int numTerminos){
         
         for(int i = 0; i <= numTerminos; i++){

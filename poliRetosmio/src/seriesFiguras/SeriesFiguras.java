@@ -6,7 +6,6 @@ public class SeriesFiguras {
         
         System.out.print("\t Ingrese el tamanio de la figura: ");
         int n = sc.nextInt();
-
         System.out.println(" F1: ");
         Gr5_f1(n);
         System.out.println(" F2: ");
@@ -271,7 +270,6 @@ public class SeriesFiguras {
             }
         }
     }
-    
     
     public void Gr5_17(int n) {
         int espacios = 0;
