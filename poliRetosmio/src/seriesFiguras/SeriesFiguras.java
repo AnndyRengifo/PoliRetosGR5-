@@ -121,61 +121,72 @@ public class SeriesFiguras {
     }
 
     public void Gr5_f7(int n){
-        for (int i = 0; i < n; i++) {
-            for(int j = 0; j < i * 4; j++){
-                System.out.print(" ");
+        for(int i=0; i<n; i++){
+            for( int j=0; j<n; j++){
+                if(i==0 && j==0){
+                    System.out.print("_");
+                } else if(i==j){
+                    System.out.print("|_");
+                } else System.out.print("  ");
             }
-            System.out.println("|__");
+            System.out.println();
         }
     }
 
     public void Gr5_f8(int n){
         for (int i = 0; i < n; i++) {
-            for(int j = n - i - 1; j > 0; j--){
-                System.out.print("    ");
+            for (int j = 0; j < n - i - 1; j++) {
+                System.out.print("  ");
             }
-            System.out.println("__|");
+
+            if (i == 0) {
+                System.out.println("_");
+            } else {
+                System.out.println("_|");
+            }
         }
     }
 
     public void Gr5_f9(int n) {
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < (n - i - 1) * 4; j++) {
-                System.out.print(" ");
-            }
-            System.out.print("___|");
-            
-             for (int k = 0; k < i * 8; k++) {
-                 System.out.print(" ");
+        for(int i=0; i<n; i++){
+            for( int j=0; j<n; j++){
+                if(i==n-j){
+                    System.out.print("_|");
+                } else System.out.print("  ");
             }
 
-            System.out.println("|___");
+            if (i > 0) {
+                for (int j = 0; j < 2 * i - 1; j++) {
+                    System.out.print(" ");
+                }
+                System.out.print("|");
+            }
+
+            System.out.println("_");
         }
     }
 
     public void Gr5_f10(int n){
-        for (int i = 0; i < n; i++) {
-            for(int j = 0; j < i * 4; j++){
-                System.out.print(" ");
+        String figura1 = "|_+_";
+        String figura2 = "|_-_";
+        for(int i=0;i<n;i++) {
+            for(int j=0;j<i;j++) {
+                System.out.print("    ");
             }
-            if(i % 2 == 0){
-                System.out.println("|_+_");
+            if(i%2==0){
+                System.out.println(figura1);
             }else{
-                System.out.println("|_-_");
+                System.out.println(figura2);
             }
         }
     }
 
     public void Gr5_f11(int n){
-        for (int i = 0; i < n; i++) {
-            for(int j = 0; j < i * 4; j++){
-                System.out.print(" ");
+        for (int i = 1; i <= n; i++) {
+            System.out.println("|" + " _".repeat(i));
+            for (int j = 0; j <= i; j++) {
+                System.out.print((j==0)?"   ".repeat(j):"  ".repeat(j));
             }
-            System.out.print("|");
-            for(int j = 0; j < i; j++){
-                System.out.print("_");
-            }
-            System.out.println();
         }
     }
 
@@ -221,138 +232,121 @@ public class SeriesFiguras {
     }
 
     public void Gr5_f15(int n){ 
-        int[][] triangulo = new int[n][n];
-        for(int i = 0; i < n; i++){
-            triangulo[i][0] = 1;
-            triangulo[i][i] = 1;
-            for(int j = 1; j < i; j++){
-                triangulo[i][j] = triangulo[i - 1][j - 1] + triangulo[i - 1][j];
-            }
-        }
-        for(int i = 0; i < n; i++){
-            for(int j = 0; j < n - i - 1; j++){
-                System.out.println("   ");
-            }
-            for(int j = 0; j <= i; j++){
-                System.out.printf("%4d", triangulo[i][j]);
+        for (int i = 0; i < n; i++) {
+            int num = 1;
+            for (int j = 0; j <= i; j++) {
+                System.out.print(num + " ");
+                num = num * (i - j) / (j + 1);
             }
             System.out.println();
         }
     }
 
     public void Gr5_16(int n) {
-        for (int i = 0; i < n; i++) {
-            // Imprimir espacios en blanco antes del primer símbolo
-            for (int j = 0; j < (n - i - 1); j++) {
-                System.out.print("    "); // Espacios en blanco
-            }
-    
-            // Determinar el símbolo a imprimir en las diagonales
-            String sym1 = (i % 2 == 0) ? "+" : "-"; // Primer símbolo
-            System.out.print(sym1); // Imprimir el primer símbolo
-    
-            // Imprimir espacios entre los símbolos
-            if (i != n - 1) { // Evitar imprimir el segundo símbolo en la última fila
-                for (int j = 0; j < (i * 2); j++) {
-                    System.out.print("    "); // Espacios en blanco
+        int espacios = 0;
+        int anchoLinea = (n + 1) * 2;
+ 
+        for (int i = 1; i <= n * 2 + 1; i++) {
+            StringBuilder linea = new StringBuilder();
+ 
+            for (int j = 1; j <= anchoLinea; j++) {
+                if (i != n + 1) {
+                   if (j == 1 + espacios || j == anchoLinea - espacios) {
+                       linea.append((n % 2 == 0) ? ((i % 2 == 0) ? "+ " : "- ") :
+                               ((i % 2 != 0) ? "+ " : "- "));
+                   } else {
+                       linea.append(" ");
+                   }
+                } else {
+                   linea.append((j == espacios) ? "  + " : " ");
                 }
-                String sym2 = (i % 2 == 0) ? "+" : "-"; // Segundo símbolo
-                System.out.print(sym2);
             }
-    
-            // Nueva línea al final de cada fila
-            System.out.println();
+ 
+            System.out.println(linea);
+ 
+            if (i <= n) {
+                espacios++;
+            } else {
+                espacios--;
+            }
         }
     }
     
     
     public void Gr5_17(int n) {
-        for (int i = 0; i < n; i++) {
-            // Imprimir espacios en blanco antes del primer número
-            for (int j = 0; j < (n - i - 1); j++) {
-                System.out.print("    "); // Espacios en blanco
+        int espacios = 0;
+        for (int i = 1; i <= n*2+1; i++) {
+            for (int j = 1; j <= ((n + 1) * 2); j++) {
+                System.out.print((i!=n+1)?(((j == 1 + espacios || j == ((n +1) * 2) - espacios))
+                        ? (((n % 2 == 0) ? ((i % 2 == 0) ? 0+" " : 1+" ") : ((i % 2 != 0) ? 0+" " : 1+" ")))
+                        : "      "): (j==espacios)? "       "+1:"      ");
             }
-    
-            // Determinar el número a imprimir en las diagonales
-            int num1 = (i % 2 == 0) ? 1 : 0; // Primer número
-            System.out.print(num1); // Imprimir el primer número
-    
-            // Imprimir espacios entre los números
-            if (i != n - 1) { // Evitar imprimir el segundo número en la última fila
-                for (int j = 0; j < (i * 2); j++) {
-                    System.out.print("    "); // Espacios en blanco
-                }
-                int num2 = (i % 2 == 0) ? 1 : 0; // Segundo número
-                System.out.print(num2);
+            if(i<=n){
+                espacios++;
+            }else{
+                espacios--;
             }
-    
-            // Nueva línea al final de cada fila
             System.out.println();
         }
     }
     
     public void Gr18_f18(int n){
-        int[][] triangulo = new int[n][n];
-        for(int i = 0; i < n; i++){
-            triangulo[i][0] = 1;
-            triangulo[i][i] = 2;
-            for(int j = 1; j < i; j++){
-                triangulo[i][j] = triangulo[i - 1][j - 1] + triangulo[i - 1][j];
+        int [][] matriz = new int[n][n];
+
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                if(i==j)
+                matriz[i][j]=2;
+                else if(j==0)
+                matriz[i][j]=1;
             }
-        }
-        for(int i = 0; i < n; i++){
-            for(int j = 0; j < n - i - 1; j++){
-                System.out.println("   ");
+         }
+         for (int i = 1; i < matriz.length; i++) {
+            for (int j = 1; j < matriz.length; j++) {
+                if(i>j)
+                matriz[i][j]=matriz[i-1][j]+matriz[i-1][j-1];
             }
-            for(int j = 0; j <= i; j++){
-                System.out.printf("%4d", triangulo[i][j]);
+         }
+         for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                if((j==0)&&(i!=0))
+                System.out.print("1 ");
+                if((i>j)&&(j!=0))
+                System.out.print(matriz[i][j]+" ");
+                if(i==j)
+                System.out.print("2 ");
             }
             System.out.println();
-        }
+         }
     }
 
     public void Gr5_f19(int n) {
-        int[][] valores = new int[n][n];
-        
-        for (int i = 0; i < n; i++) {
-            switch (i) {
-                case 0:
-                    valores[i][0] = 1; 
-                    break;
-                case 1:
-                    valores[i][0] = 1; 
-                    valores[i][1] = 2; 
-                    break;
-                default:
-                    valores[i][0] = i + 1; 
-                    for (int j = 1; j < i; j++) {
-                        valores[i][j] = valores[i - 1][j - 1] + valores[i - 1][j]; 
-                    }
-                    break;
+        int [][] matriz = new int[n][n];
+
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                if(i==j)
+                matriz[i][j]=2;
+                else if(j==0)
+                matriz[i][j]=1;
             }
-        }
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < (n - i - 1); j++) {
-                System.out.print(""); 
+         }
+         for (int i = 1; i < matriz.length; i++) {
+            for (int j = 1; j < matriz.length; j++) {
+                if(i>j)
+                matriz[i][j]=matriz[i-1][j]+matriz[i-1][j-1];
             }
-            if (i > 0) {
-                System.out.print("+"); 
+         }
+         for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                if((j==0)&&(i!=0))
+                System.out.print("+ ");
+                if((i>j)&&(j!=0))
+                System.out.print(matriz[i][j]+" ");
+                if(i==j)
+                System.out.print("* ");
             }
-    
-            for (int j = 0; j <= i; j++) {
-                if (j < i) {
-                    if(i == 0){
-                        System.out.print("*");
-                    }else{
-                        System.out.print("  " + valores[i][j]); 
-                    }
-                } else {
-                    System.out.print("   *"); 
-                }
-            } 
             System.out.println(); 
         }
     }
-    
-
 }
